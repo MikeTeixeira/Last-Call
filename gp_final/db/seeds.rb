@@ -14,23 +14,24 @@ User.create([
 	])
 
 Restaurant.create([
-	{name:"Poke bowl" , description:"the best food spot ever" , category:0 , phone_number:"(212)555-1234" , location:"90 john st" , open_hours: "8am" , close_hours:"9pm" },
-	{name:"Jubulee" , description:"One stop shop " , category:5 , phone_number:"(212)899-9098" , location:"30 john st" , open_hours: "6am" , close_hours:"7pm" },
-	{name:"thai hut" , description:"yummy in your tummy " , category: 6 , phone_number:"(907)555-1234" , location:"80 john st" , open_hours: "5am" , close_hours:"6pm" }
+	{name:"Poke bowl" , description:"the best food spot ever" , category:0 , phone_number:"(212)555-1234" , address:"90 john st" ,state: "ny", city:"Manhattan" , zipcode:19808 , open_hours: "8" , close_hours:"9" },
+	{name:"Jubulee" , description:"One stop shop " , category:5 , phone_number:"(212)899-9098" , address:"30 john st" ,state: "ny", city:"corona" , zipcode:12038 , open_hours: "6" , close_hours:"7" },
+	{name:"thai hut" , description:"yummy in your tummy " , category: 6 , phone_number:"(907)555-1234" , address:"20 john st" ,state: "ny", city:"downtown" , zipcode:10038 , open_hours: "5" , close_hours:"6" }
 	])
 Rating.create([
-{ restaurant_id: 1 , review: "best evaaaa", restaurant_rating:4  },
-{ restaurant_id: 2 , review: "ughh gross", restaurant_rating:1 },
-{ restaurant_id: 3 , review: "inexpensive and good", restaurant_rating:5 }
+{   review: "best evaaaa", restaurant_rating:4  },
+{ review: "ughh gross", restaurant_rating:1 },
+{  review: "inexpensive and good", restaurant_rating:5 }
 	])
 
 
 Order.create([
-{user_id: 1, restaurant_id: 1,driver_id:1 , image: nil , status: 1 , cost: 21.30 , arrival: '24:22:67' },
-{user_id: 2, restaurant_id: 2, driver_id:1 ,image: nil , status: 0 , cost: 10.35 , arrival: '29:33:04' },
-{user_id: 3, restaurant_id: 3, driver_id:1 ,image: nil , status: 1 , cost: 30.99 , arrival: '26:08:22' }
+{user_id: 1, restaurant_id: 1, pickup_address:"90 john st"  , pickup_phone_number:"(212)555-1234" , pickup_business_name:"Poke bowl" , dropoff_name: "Cam Crew", dropoff_address:"90 john street" , dropoff_phone_number: "(718)123-4556" , dropoff_business_name:"NYCDA" , dropoff_notes: "Do not eat my food !"},
+{user_id: 2, restaurant_id: 2,pickup_address:"103-02 10st"  , pickup_phone_number:"(212)555-4567" , pickup_business_name:"Jubulee" , dropoff_name: "Christy", dropoff_address:"20 crew blvd" , dropoff_phone_number: "(718)123-4556" , dropoff_business_name:"NYCDA" , dropoff_notes: "Do not eat my food !"},
+{user_id: 3, restaurant_id: 3, pickup_address:"90 john st"  , pickup_phone_number:"(212)555-1234" , pickup_business_name:"Poke bowl" , dropoff_name: "Cam Crew", dropoff_address:"20" , dropoff_phone_number: "(718)789-4556" , dropoff_business_name:"Toyota" , dropoff_notes: "Do not eat my food !"}
 	])
 
+ 
 
 MenuItem.create([
 {restaurant_id:1 , name:"chicken bowl" , category:8 , price: 12.00 , description:"chicken and rice in a bowl"},
