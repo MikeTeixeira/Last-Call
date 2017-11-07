@@ -4,8 +4,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.references :user, foreign_key: true
       t.references :restaurant, foreign_key: true
       t.string :image
-      t.string :name
-      t.string :description
+      t.integer :status
       t.decimal :cost
       t.datetime :arrival
 
