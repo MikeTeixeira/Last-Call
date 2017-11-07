@@ -10,19 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107155930) do
+ActiveRecord::Schema.define(version: 20171107163625) do
 
-  create_table "drivers", force: :cascade do |t|
+  create_table "menu_item_orders", force: :cascade do |t|
     t.integer "order_id"
+    t.integer "menu_item_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_drivers_on_order_id"
+    t.index ["menu_item_id"], name: "index_menu_item_orders_on_menu_item_id"
+    t.index ["order_id"], name: "index_menu_item_orders_on_order_id"
   end
 
   create_table "menu_items", force: :cascade do |t|
     t.integer "restaurant_id"
     t.string "name"
-    t.string "category"
+    t.integer "category"
     t.decimal "price"
     t.text "description"
     t.datetime "created_at", null: false
@@ -34,12 +37,13 @@ ActiveRecord::Schema.define(version: 20171107155930) do
     t.integer "user_id"
     t.integer "restaurant_id"
     t.string "image"
-    t.string "name"
-    t.string "description"
+    t.integer "status"
     t.decimal "cost"
     t.datetime "arrival"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "driver_id"
+    t.index ["driver_id"], name: "index_orders_on_driver_id"
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -60,7 +64,7 @@ ActiveRecord::Schema.define(version: 20171107155930) do
     t.integer "menu_item_id"
     t.string "name"
     t.text "description"
-    t.string "category"
+    t.integer "category"
     t.string "phone_number"
     t.string "location"
     t.string "open_hours"
