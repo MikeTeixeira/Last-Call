@@ -12,16 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :rating_id %>
-    <%= form.text_field :rating_id, id: :restaurant_rating_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :menu_item_id %>
-    <%= form.text_field :menu_item_id, id: :restaurant_menu_item_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :restaurant_name %>
   </div>
@@ -37,8 +27,23 @@
   </div>
 
   <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location, id: :restaurant_location %>
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :restaurant_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :restaurant_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :restaurant_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode, id: :restaurant_zipcode %>
   </div>
 
   <div class="field">

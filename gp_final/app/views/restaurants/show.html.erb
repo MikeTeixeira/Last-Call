@@ -1,14 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @restaurant.rating %>
-</p>
 
-<p>
-  <strong>Menu item:</strong>
-  <%= @restaurant.menu_item %>
-</p>
 
 <p>
   <strong>Name:</strong>
@@ -26,18 +18,33 @@
 </p>
 
 <p>
-  <strong>Location:</strong>
-  <%= @restaurant.location %>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @restaurant.state %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @restaurant.city %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @restaurant.zipcode %>
 </p>
 
 <p>
   <strong>Open hours:</strong>
-  <%= @restaurant.open_hours %>
+  <%= @restaurant.open_hours %>am
 </p>
 
 <p>
   <strong>Close hours:</strong>
-  <%= @restaurant.close_hours %>
+  <%= @restaurant.close_hours %>pm
 </p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
