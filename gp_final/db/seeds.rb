@@ -25,12 +25,6 @@ Rating.create([
 	])
 
 
-Order.create([
-{user_id: 1, restaurant_id: 1,driver_id:1 , image: nil , status: 1 , cost: 21.30 , arrival: '24:22:67' },
-{user_id: 2, restaurant_id: 2, driver_id:1 ,image: nil , status: 0 , cost: 10.35 , arrival: '29:33:04' },
-{user_id: 3, restaurant_id: 3, driver_id:1 ,image: nil , status: 1 , cost: 30.99 , arrival: '26:08:22' }
-	])
-
 
 MenuItem.create([
 {restaurant_id:1 , name:"chicken bowl" , category:8 , price: 12.00 , description:"chicken and rice in a bowl"},

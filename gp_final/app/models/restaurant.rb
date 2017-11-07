@@ -4,5 +4,7 @@ class Restaurant < ApplicationRecord
   has_many :menu_items
   has_many :admins
   has_many :users, through: :admins
+
+  
 end
   
