@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.text_field :state, id: :restaurant_state %>
+    <%= form.text_field :state, :maxlength => 2, id: :restaurant_state %>
   </div>
 
   <div class="field">
@@ -43,7 +43,7 @@
 
   <div class="field">
     <%= form.label :zipcode %>
-    <%= form.text_field :zipcode, id: :restaurant_zipcode %>
+    <%= form.text_field :zipcode, :maxlength => 5, id: :restaurant_zipcode %>
   </div>
 
   <div class="field">
