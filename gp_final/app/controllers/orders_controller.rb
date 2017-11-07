@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:new]
 
   # GET /orders
   # GET /orders.json
@@ -26,10 +27,10 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new
     @postmates_order = @order.postmates_client.create(order_params)
-    @postmates_quote = @order.postmates_client.create(quote_params)
+    @postmates_quote = @order.postmates_client.quote(quote_params)
 
     respond_to do |format|
-      if @order.save
+      if @postmates_order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -69,9 +70,13 @@ class OrdersController < ApplicationController
       @order = Order.find(params[:id])
     end
 
+    def set_restaurant
+      @restaurant = Restaurant.find(params[:restaurant_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :restaurant_id, :manifest, :pickup_name, :pickup_address, :pickup_phone_number, :pickup_business_name, :pickup_notes, :dropoff_name, :dropoff_address, :dropoff_phone_number, :dropoff_business_nam, :dropoff_notes)
+      params.require(:order).permit(:user_id, :restaurant_id, :pickup_address, :pickup_phone_number, :pickup_business_name, :dropoff_name, :dropoff_address, :dropoff_phone_number, :dropoff_business_name, :dropoff_notes)
     end
 
     def quote_params
