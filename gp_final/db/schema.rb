@@ -21,11 +21,15 @@ ActiveRecord::Schema.define(version: 20171107185638) do
     t.index ["user_id"], name: "index_admins_on_user_id"
   end
 
-  create_table "drivers", force: :cascade do |t|
+
+  create_table "menu_item_orders", force: :cascade do |t|
     t.integer "order_id"
+    t.integer "menu_item_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_drivers_on_order_id"
+    t.index ["menu_item_id"], name: "index_menu_item_orders_on_menu_item_id"
+    t.index ["order_id"], name: "index_menu_item_orders_on_order_id"
   end
 
   create_table "menu_item_orders", force: :cascade do |t|
@@ -66,6 +70,8 @@ ActiveRecord::Schema.define(version: 20171107185638) do
     t.string "quote_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "driver_id"
+    t.index ["driver_id"], name: "index_orders_on_driver_id"
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
