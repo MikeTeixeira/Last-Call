@@ -25,13 +25,13 @@ Rating.create([
 	])
 
 
+
 Order.create([
 {user_id: 1, restaurant_id: 1, pickup_address:"90 john st"  , pickup_phone_number:"(212)555-1234" , pickup_business_name:"Poke bowl" , dropoff_name: "Cam Crew", dropoff_address:"90 john street" , dropoff_phone_number: "(718)123-4556" , dropoff_business_name:"NYCDA" , dropoff_notes: "Do not eat my food !"},
 {user_id: 2, restaurant_id: 2,pickup_address:"103-02 10st"  , pickup_phone_number:"(212)555-4567" , pickup_business_name:"Jubulee" , dropoff_name: "Christy", dropoff_address:"20 crew blvd" , dropoff_phone_number: "(718)123-4556" , dropoff_business_name:"NYCDA" , dropoff_notes: "Do not eat my food !"},
 {user_id: 3, restaurant_id: 3, pickup_address:"90 john st"  , pickup_phone_number:"(212)555-1234" , pickup_business_name:"Poke bowl" , dropoff_name: "Cam Crew", dropoff_address:"20" , dropoff_phone_number: "(718)789-4556" , dropoff_business_name:"Toyota" , dropoff_notes: "Do not eat my food !"}
 	])
 
- 
 
 MenuItem.create([
 {restaurant_id:1 , name:"chicken bowl" , category:8 , price: 12.00 , description:"chicken and rice in a bowl"},
