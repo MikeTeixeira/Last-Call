@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107163625) do
+ActiveRecord::Schema.define(version: 20171107185638) do
+
+  create_table "admins", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_admins_on_restaurant_id"
+    t.index ["user_id"], name: "index_admins_on_user_id"
+  end
 
   create_table "drivers", force: :cascade do |t|
     t.integer "order_id"
@@ -43,10 +52,18 @@ ActiveRecord::Schema.define(version: 20171107163625) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.integer "restaurant_id"
-    t.string "image"
-    t.integer "status"
-    t.decimal "cost"
-    t.datetime "arrival"
+    t.string "manifest"
+    t.string "pickup_name"
+    t.string "pickup_address"
+    t.string "pickup_phone_number"
+    t.string "pickup_business_name"
+    t.string "pickup_notes"
+    t.string "dropoff_name"
+    t.string "dropoff_address"
+    t.string "dropoff_phone_number"
+    t.string "dropoff_business_name"
+    t.text "dropoff_notes"
+    t.string "quote_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
