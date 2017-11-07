@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rating: one
+  menu_item: one
+  name: MyString
+  description: MyString
+  phone_number: MyString
+  location: MyString
+  open_hours: MyString
+  close_hours: MyString
+
+two:
+  rating: two
+  menu_item: two
+  name: MyString
+  description: MyString
+  phone_number: MyString
+  location: MyString
+  open_hours: MyString
+  close_hours: MyString

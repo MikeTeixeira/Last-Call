@@ -1,0 +1,57 @@
+<%= form_with(model: restaurant, local: true) do |form| %>
+  <% if restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rating_id %>
+    <%= form.text_field :rating_id, id: :restaurant_rating_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :menu_item_id %>
+    <%= form.text_field :menu_item_id, id: :restaurant_menu_item_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :restaurant_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :restaurant_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number, id: :restaurant_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :restaurant_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :open_hours %>
+    <%= form.text_field :open_hours, id: :restaurant_open_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :close_hours %>
+    <%= form.text_field :close_hours, id: :restaurant_close_hours %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
