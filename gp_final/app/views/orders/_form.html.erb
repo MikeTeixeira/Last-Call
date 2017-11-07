@@ -11,39 +11,38 @@
     </div>
   <% end %>
 
+    <input type="hidden" id="pickup_address" name="restaurant[pickup_address]" value="#{@restaurant.full_address}" />
+    <input type="hidden" id="pickup_phone_number" name="restaurant[pickup_phone_number]" value="#{@restaurant.phone_number}" />
+    <input type="hidden" id="pickup_business_name" name="restaurant[pickup_business_name]" value="#{@restaurant.name}" />
+
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :order_user_id %>
+    <%= form.label :dropoff_name %>
+    <%= form.text_field :dropoff_name, id: :order_dropoff_name %>
   </div>
 
   <div class="field">
-    <%= form.label :restaurant_id %>
-    <%= form.text_field :restaurant_id, id: :order_restaurant_id %>
+    <%= form.label :dropoff_address %>
+    <%= form.text_field :dropoff_address, id: :order_dropoff_address %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image, id: :order_image %>
+    <%= form.label :dropoff_phone_number %>
+    <%= form.text_field :dropoff_phone_number, id: :order_dropoff_phone_number %>
   </div>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :order_name %>
+    <%= form.label :dropoff_phone_number %>
+    <%= form.text_field :dropoff_phone_number, id: :order_dropoff_phone_number %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :order_description %>
+    <%= form.label :dropoff_business_name %>
+    <%= form.text_field :dropoff_business_name, id: :order_dropoff_business_name %>
   </div>
 
   <div class="field">
-    <%= form.label :cost %>
-    <%= form.text_field :cost, id: :order_cost %>
-  </div>
-
-  <div class="field">
-    <%= form.label :arrival %>
-    <%= form.datetime_select :arrival, id: :order_arrival %>
+    <%= form.label :dropoff_notes %>
+    <%= form.textarea_field :dropoff_notes, id: :order_dropoff_notes %>
   </div>
 
   <div class="actions">
