@@ -11,6 +11,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
       t.string :zipcode
       t.string :open_hours
       t.string :close_hours
+      
 
       t.timestamps
     end

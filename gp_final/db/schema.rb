@@ -54,30 +54,27 @@ ActiveRecord::Schema.define(version: 20171107163625) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "order_id"
     t.text "review"
     t.integer "restaurant_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_ratings_on_order_id"
-    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.integer "rating_id"
-    t.integer "menu_item_id"
     t.string "name"
     t.text "description"
     t.integer "category"
     t.string "phone_number"
-    t.string "location"
+    t.string "address"
+    t.string "state"
+    t.string "city"
+    t.string "zipcode"
     t.string "open_hours"
     t.string "close_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["menu_item_id"], name: "index_restaurants_on_menu_item_id"
-    t.index ["rating_id"], name: "index_restaurants_on_rating_id"
   end
 
   create_table "users", force: :cascade do |t|
