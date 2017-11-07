@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
 User.create([
 	{ f_name: "Joan", l_name:"Borbon" , email:"jborbon@live.com" , username:"jborbon" , password: "test123"},
 	{ f_name: "Christy", l_name:"Kusuma" , email:"ck@gmail.com" , username:"Christyk" , password: "test123"},
@@ -45,5 +44,3 @@ MenuItemOrder.create([
 {order_id:3 , menu_item_id:3 , quantity:1}
 	])
 
-
-	

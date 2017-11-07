@@ -24,7 +24,9 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = Order.new
+    @postmates_order = @order.postmates_client.create(order_params)
+    @postmates_quote = @order.postmates_client.create(quote_params)
 
     respond_to do |format|
       if @order.save
@@ -69,6 +71,11 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :restaurant_id, :image, :name, :description, :cost, :arrival)
+      params.require(:order).permit(:user_id, :restaurant_id, :manifest, :pickup_name, :pickup_address, :pickup_phone_number, :pickup_business_name, :pickup_notes, :dropoff_name, :dropoff_address, :dropoff_phone_number, :dropoff_business_nam, :dropoff_notes)
     end
+
+    def quote_params
+      params.require(:order).permit(:pickup_address, :dropoff_address)
+    end
+
 end
