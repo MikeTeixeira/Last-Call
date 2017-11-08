@@ -6,8 +6,6 @@ class User < ApplicationRecord
   validates :username, :presence => true
   validates :password, :presence => true
 
-
-  enum role: {user: 0, admin: 1}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -16,5 +14,7 @@ class User < ApplicationRecord
   has_many :ratings, through: :orders
   has_many :admins
   has_many :restaurants, through: :admins
+
+  enum role: [:user, :admin]
 
 end
