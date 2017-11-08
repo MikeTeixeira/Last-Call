@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108135328) do
-
-  create_table "admins", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "restaurant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_admins_on_restaurant_id"
-    t.index ["user_id"], name: "index_admins_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 20171108164423) do
 
   create_table "menu_item_orders", force: :cascade do |t|
     t.integer "order_id"
