@@ -45,7 +45,5 @@ MenuItemOrder.create([
 {order_id:3 , menu_item_id:3 , quantity:1}
 	])
 
-Admin.create([
 
-])
 

@@ -3,12 +3,34 @@ class Ability
 
   def initialize(user)
     # Define abilities for the passed in user here. For example:
-    #
+    
 
-    if user.admin?
+    if user.has_role? :admin
 
-        can :manage, Restaurant do |restaurant|
-            restaurant.id = user
+        can :edit, Restaurant do |restaurant|
+            restaurant.id == user
+        end
+
+        can :create, Restaurant
+
+        can :edit, Restaurant do |restaurant|
+            restaurant.users == user
+        end
+
+        can :destroy, Restaurant do |restaurant|
+            restaurant.users == user
+        end
+
+        can :update, User do |user|
+            user.id == user
+        end
+
+        can :destroy, User do |user|
+            user.id == user
+        end
+
+        can :edit, User do |user|
+            user.id == user
         end
 
 
@@ -47,7 +69,11 @@ class Ability
 
         can :destroy, Restaurant do |restaurant|
             restaurant.users == user
-        end 
+        end
+
+        ##Allows everyone to see
+
+        can :show, :all 
 
     end
       # user ||= User.new # guest user (not logged in)

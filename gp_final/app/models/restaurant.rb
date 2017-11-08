@@ -5,6 +5,8 @@ class Restaurant < ApplicationRecord
   has_many :admins
   has_many :users, through: :admins
 
+
+
   def full_address
   	"#{address} #{city} #{state} #{zipcode}"
   end 

@@ -9,6 +9,12 @@
   </div>
 
   <div class="field">
+    <%= f.label "Own a restaurant?" %>
+    <%= f.select :admin, options_for_select([['Yes', true], ['No', false]]), id: :user_admin%>
+  </div>
+
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
