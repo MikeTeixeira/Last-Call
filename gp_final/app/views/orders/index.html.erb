@@ -28,8 +28,13 @@
         <td><%= order.dropoff_phone_number %></td>
         <td><%= order.dropoff_business_name %></td>
         <td><%= link_to 'Show', order %></td>
+        <% if can? :update, order %>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <% end %>
+
+        <% if can? :destroy, order %>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

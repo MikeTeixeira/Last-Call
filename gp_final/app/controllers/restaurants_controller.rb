@@ -19,13 +19,15 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1/edit
   def edit
+
   end
 
   # POST /restaurants
   # POST /restaurants.json
   def create
-    @restaurant = Restaurant.new(restaurant_params)
-
+    @user = current_user
+    @restaurant = @user.restaurants.build(restaurant_params)
+    @restaurant.save
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
