@@ -1,11 +1,17 @@
 class RestaurantsController < ApplicationController
 <<<<<<< HEAD
+<<<<<<< HEAD
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu]
   before_action :authenticate_user!
 =======
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu, :create_order, :submit_order]
   before_action :set_order, only: [:submit_order]
 >>>>>>> 4e6d98696a85afcec9dc3fd7924e76cb63ad8389
+=======
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu, :create_order, :submit_order]
+  before_action :set_order, only: [:submit_order]
+
+>>>>>>> e433d9babb584067765cb8700a0ac867781b6b4e
 
   # GET /restaurants
   def index
