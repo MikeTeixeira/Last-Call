@@ -2,9 +2,15 @@ Rails.application.routes.draw do
   devise_for :users
   resources :ratings
   resources :restaurants
-  resources :orders
+  resources :orders, :except => [:new]
+
+  get 'new/:restaurant_id' => 'orders#new', as: :new_order
+
+
   resources :users
-  resources :menu_items
+
+  get 'menu/:restaurant_id' => 'restaurants#menu', as: :menu
+
   get 'about' => 'about#index', :as => :about_us
 
   root 'home#index'
