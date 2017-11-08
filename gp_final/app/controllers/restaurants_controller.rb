@@ -1,9 +1,9 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu]
-  before_action :authenticate_user!
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu, :create_order, :submit_order]
+  before_action :set_order, only: [:submit_order]
+
 
   # GET /restaurants
-  # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
     if params[:search]
@@ -15,7 +15,6 @@ class RestaurantsController < ApplicationController
   end
 
   # GET /restaurants/1
-  # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find(params[:id])
   end
@@ -30,6 +29,7 @@ class RestaurantsController < ApplicationController
 
   end
 
+  # Show menu items
   def menu
 
   end
@@ -42,13 +42,7 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  # submit order into postmates
-  def submit_order
-
-  end
-
   # POST /restaurants
-  # POST /restaurants.json
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user_id = current_user.id
@@ -92,6 +86,11 @@ class RestaurantsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
       @restaurant = Restaurant.find(params[:id])
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_order
+      @order = Order.find(params[:order_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
