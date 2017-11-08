@@ -5,83 +5,17 @@ class Ability
     # Define abilities for the passed in user here. For example:
     
 
-    if user.has_role? :admin
+      user ||= User.new # guest user (not logged in)
 
-        can :edit, Restaurant do |restaurant|
-            restaurant.id == user
-        end
+      alias_action :create, :read, :update, :destroy, :to => :crud
 
-        can :create, Restaurant
+      if user.admin?
+        can :edit, Restaurant, active: true, user_id: user.id
+        can :destroy, Restaurant, :active => true, :user_id => user.id
 
-        can :edit, Restaurant do |restaurant|
-            restaurant.users == user
-        end
-
-        can :destroy, Restaurant do |restaurant|
-            restaurant.users == user
-        end
-
-        can :update, User do |user|
-            user.id == user
-        end
-
-        can :destroy, User do |user|
-            user.id == user
-        end
-
-        can :edit, User do |user|
-            user.id == user
-        end
-
-
-    else
-        can :update, User do |user|
-            user.id == user
-        end
-
-        can :destroy, User do |user|
-            user.id == user
-        end
-
-        can :edit, User do |user|
-            user.id == user
-        end
-
-        # ORDER SECTION 
-
-        can :create, Order
-
-        can :edit, Order do |order|
-            order.user == user
-        end
-
-        can :destroy, Order do |order|
-            order.user == user
-        end
-
-        # RESTAURANT SECTION
-
-        can :create, Restaurant
-
-        can :edit, Restaurant do |restaurant|
-            restaurant.users == user
-        end
-
-        can :destroy, Restaurant do |restaurant|
-            restaurant.users == user
-        end
-
-        ##Allows everyone to see
-
-        can :show, :all 
-
-    end
-      # user ||= User.new # guest user (not logged in)
-      # if user.admin?
-      #   can :manage, :all
-      # else
-      #   can :read, :all
-      # end
+      else
+        can [:read, :create, :edit], User, :user_id => user.id
+      end
     #
     # The first argument to `can` is the action you are giving the user 
     # permission to do.

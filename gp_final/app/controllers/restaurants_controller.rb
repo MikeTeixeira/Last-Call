@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu, :create_order, :submit_order]
   before_action :set_order, only: [:submit_order]
 
+
   # GET /restaurants
   def index
     @restaurants = Restaurant.all
@@ -15,6 +16,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1
   def show
+    @restaurant = Restaurant.find(params[:id])
   end
 
   # GET /restaurants/new
@@ -42,9 +44,9 @@ class RestaurantsController < ApplicationController
 
   # POST /restaurants
   def create
-    @user = current_user
-    @restaurant = @user.restaurants.build(restaurant_params)
-    @restaurant.save
+    @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.user_id = current_user.id
+
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
@@ -83,7 +85,7 @@ class RestaurantsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
-      @restaurant = Restaurant.find(params[:restaurant_id])
+      @restaurant = Restaurant.find(params[:id])
     end
 
     # Use callbacks to share common setup or constraints between actions.
