@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:new, :show, :edit, :update, :destroy]
   before_action :set_restaurant, only: [:new]
 
   # GET /orders
@@ -13,9 +13,11 @@ class OrdersController < ApplicationController
   def show
   end
 
-  # GET /orders/new
+  # GET /orders/new to take client information for the order
+  # Since order id was already created for menu_item_order, 
+  # we have to find the order and update the rest of the params
   def new
-    @order = Order.new
+
   end
 
   # GET /orders/1/edit
@@ -67,7 +69,7 @@ class OrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
-      @order = Order.find(id: params[:id])
+      @order = Order.find(id: params[:order])
     end
 
     def set_restaurant
