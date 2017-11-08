@@ -32,8 +32,14 @@
         <td><%= restaurant.open_hours %> am</td>
         <td><%= restaurant.close_hours %> pm</td>
         <td><%= link_to 'Show', restaurant %></td>
+
+        <% if can? :edit, restaurant %>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <% end %>
+
+        <% if can? :destroy, restaurant %>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
