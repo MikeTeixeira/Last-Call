@@ -8,6 +8,11 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <div class="field">
+    <%= form.label "Own a restaurant?" %>
+    <%= form.select :admin, options_for_select([['Yes', true], ['No', false]]), id: :user_admin%>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

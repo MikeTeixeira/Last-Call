@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+  validates :f_name, :presence => true
+  validates :l_name, :presence => true
+  validates :admin, :presence => true
+  validates :email, :presence => true
+  validates :username, :presence => true
+  validates :password, :presence => true
 
 
   enum role: {user: 0, admin: 1}
