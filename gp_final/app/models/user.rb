@@ -12,9 +12,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :orders
   has_many :ratings, through: :orders
-  has_many :admins
-  has_many :restaurants, through: :admins
+  has_many :restaurants
 
-  enum role: [:user, :admin]
+
 
 end

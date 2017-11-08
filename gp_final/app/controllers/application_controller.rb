@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def authorize_admin
-    redirect_to root_path, alert: "You need to have a restaurant!" unless current_user.admin?
-  end
+   before_action :configure_permitted_parameters, if: :devise_controller?
+
+   protected
+
+  def configure_permitted_parameters
+
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:f_name, :l_name, :email, :password, :admin) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:fname, :lname, :email, :password, :current_password, :admin) }
+    end
 end
