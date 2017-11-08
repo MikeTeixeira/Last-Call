@@ -25,9 +25,9 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new
-    @postmates_order = @order.postmates_client.create(order_params)
-    @postmates_quote = @order.postmates_client.quote(quote_params)
+    @order = Order.new(order_params)
+    # @postmates_order = @order.postmates_client.create(order_params)
+    # @postmates_quote = @order.postmates_client.quote(quote_params)
 
     respond_to do |format|
       if @postmates_order.save
@@ -67,11 +67,11 @@ class OrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
-      @order = Order.find(params[:id])
+      @order = Order.find(id: params[:id])
     end
 
     def set_restaurant
-      @restaurant = Restaurant.find(params[:restaurant_id])
+      @restaurant = Restaurant.find_by(id: params[:restaurant_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
