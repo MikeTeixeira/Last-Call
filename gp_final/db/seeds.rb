@@ -7,23 +7,85 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create!([
-	{ f_name: "Joan", l_name:"Borbon", admin: true, email:"jborbon@live.com" , username:"jborbon" , password: "test123"},
-	{ f_name: "Christy", l_name:"Kusuma", admin:true, email:"ckusuma@bu.edu" , username:"ckusuma" , password: "test123"},
-	{ f_name: "Michael", l_name:"Teixeira", admin:true, email:"mt@gmail.com" , username:"MichaelT" , password: "test123"}
-])
 
-Restaurant.create!([
-	{name:"Poke bowl" , description:"the best food spot ever" , category:0 , phone_number:"(212)555-1234" , address:"90 john st" ,state: "ny", city:"Manhattan" , zipcode:19808 , open_hours: "8" , close_hours:"9" },
-	{name:"Jubulee" , description:"One stop shop " , category:5 , phone_number:"(212)899-9098" , address:"30 john st" ,state: "ny", city:"corona" , zipcode:12038 , open_hours: "6" , close_hours:"7" },
-	{name:"thai hut" , description:"yummy in your tummy " , category: 6 , phone_number:"(907)555-1234" , address:"20 john st" ,state: "ny", city:"downtown" , zipcode:10038 , open_hours: "5" , close_hours:"6" }
-])
+User.create([ { 
+	id: 1, 
+	f_name: "Joan", 
+	l_name:"Borbon", 
+	email:"jborbon@live.com", 
+	username:"jborbon", 
+	password: "test123",
+	admin: true
+	}, { 
+	id: 2,
+	f_name: "Christy", 
+	l_name:"Kusuma" , 
+	email:"ckusuma@bu.edu", 
+	username:"ckusuma", 
+	password: "test123"
+	}, { 
+	id: 3, 
+	f_name: "Michael", 
+	l_name:"Telxelra", 
+	email:"Mt@gmail.com", 
+	username:"MichaelT", 
+	password: "test123"
+	} ])
 
-Rating.create!([
-	{review: "best evaaaa", restaurant_rating: 4 },
-	{review: "ughh gross", restaurant_rating: 1 },
-	{review: "inexpensive and good", restaurant_rating: 5 }
-])
+Restaurant.create([ {
+	id: 1,
+	name: "Poke bowl", 
+	description: "the best food spot ever", 
+	category: 0, 
+	phone_number:"(212)555-1234", 
+	address: "90 john st",
+	state: "ny", 
+	city:"Manhattan", 
+	zipcode: '19808', 
+	open_hours: "8", 
+	close_hours: "9" 
+	}, {
+	id: 2, 
+	name: "Jubulee", 
+	description: "One stop shop", 
+	category: 5, 
+	phone_number: "(212)899-9098", 
+	address: "30 john st",
+	state: "ny", 
+	city:"corona", 
+	zipcode: '12038', 
+	open_hours: "6" , 
+	close_hours:"7" 
+	}, {
+	id: 3, 
+	name:"thai hut", 
+	description: "yummy in your tummy", 
+	category: 6, 
+	phone_number: "(907)555-1234", 
+	address:"20 john st",
+	state: "ny", 
+	city:"downtown", 
+	zipcode: '10038', 
+	open_hours: "5", 
+	close_hours:"6" 
+	} ])
+
+Rating.create([ {
+	id: 1, 
+	order_id: 1,
+	review: "best evaaaa", 
+	restaurant_rating: 4  
+	}, {
+	id: 2, 
+	order_id: 2,
+	review: "ughh gross", 
+	restaurant_rating: 1 
+	}, {
+	id: 3,
+	order_id: 3,
+	review: "inexpensive and good",
+	restaurant_rating: 5 
+	} ])
 
 Order.create!([
 	{user_id: 1, restaurant_id: 1, pickup_address:"90 john st"  , pickup_phone_number:"(212)555-1234" , pickup_business_name:"Poke bowl" , dropoff_name: "Cam Crew", dropoff_address:"90 john street" , dropoff_phone_number: "(718)123-4556" , dropoff_business_name:"NYCDA" , dropoff_notes: "Do not eat my food !"},
