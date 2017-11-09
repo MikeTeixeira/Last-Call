@@ -10,7 +10,7 @@ class Ability
       alias_action :create, :read, :update, :destroy, :to => :crud
 
       if user.admin?
-        can :edit, Restaurant, active: true, user_id: user.id
+        can :edit, Restaurant, :user_id => user.id
         can :destroy, Restaurant, :active => true, :user_id => user.id
 
       else
