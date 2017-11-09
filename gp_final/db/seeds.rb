@@ -20,7 +20,8 @@ User.create([ {
 	l_name:"Kusuma" , 
 	email:"ckusuma@bu.edu", 
 	username:"ckusuma", 
-	password: "test123"
+	password: "test123",
+	admin: true
 	}, { 
 	id: 3, 
 	f_name: "Michael", 
@@ -28,6 +29,7 @@ User.create([ {
 	email:"Mt@gmail.com", 
 	username:"MichaelT", 
 	password: "test123"
+	admin: true
 	} ])
 
 Order.create([ {
