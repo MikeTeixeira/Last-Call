@@ -28,7 +28,7 @@ User.create([ {
 	l_name:"Telxelra", 
 	email:"Mt@gmail.com", 
 	username:"MichaelT", 
-	password: "test123"
+	password: "test123",
 	admin: true
 	} ])
 
