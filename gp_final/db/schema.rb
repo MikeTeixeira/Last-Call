@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(version: 20171107204259) do
     t.text "dropoff_notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "driver_id"
-    t.index ["driver_id"], name: "index_orders_on_driver_id"
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -72,8 +70,10 @@ ActiveRecord::Schema.define(version: 20171107204259) do
     t.string "zipcode"
     t.string "open_hours"
     t.string "close_hours"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

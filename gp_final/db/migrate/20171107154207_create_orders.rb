@@ -13,12 +13,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.text :dropoff_notes
 
       t.timestamps
-      t.references :driver , index:true, foreign_key: false
     end
-    add_foreign_key :driver , :user, column: :driver_id
-
-      
-    
   end
 end
 
