@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
 
   resources :ratings
-  #resources :restaurants
-  #resources :orders, :except => [:new]
+
+  resources :restaurants
+  resources :orders, :except => [:new, :create]
+
 
   resources :users do 
     get 'restaurants' => 'restaurants#my_restaurants'
@@ -23,12 +25,18 @@ Rails.application.routes.draw do
 
   get 'users/:user_id/restaurants/:restaurant_id' => 'restaurants#my_restaurant', as: :my_restaurant
 
+  post 'new/:restaurant_id' => 'orders#create', as: :create_order
+
+
+
 
   get 'new/:restaurant_id' => 'orders#new', as: :new_order
 
   resources :users
 
   get 'menu/:restaurant_id' => 'restaurants#menu', as: :menu
+
+  post 'menu/:restaurant_id' => 'restaurants#submit_menu', as: :submit_menu
 
   get 'about' => 'about#index', :as => :about_us
 

@@ -11,44 +11,45 @@
     </div>
   <% end %>
 
-    <%= form.label :user_id %>
-    <%= form.hidden current_user.id, :order_user_id %>
+  <div class="field">
+    <%= hidden_field_tag :restaurant_id, @restaurant.id %>
+  </div>
 
-    <%= form.label :restaurant_id %>
-    <%= form.hidden @restaurant.id, :order_restaurant_id %>
+  <div class="field">
+    <%= hidden_field_tag :pickup_address, @restaurant.address %>
+  </div>
 
-    <%= form.label :pickup_address %>
-    <%= form.hidden @restaurant.address, :order_pickup_address %>
+  <div class="field">
+    <%= hidden_field_tag :pickup_phone_number, @restaurant.phone_number %>
+  </div>
 
-    <%= form.label :pickup_phone_number %>
-    <%= form.hidden @restaurant.phone_number, :order_pickup_phone_number %>
-
-    <%= form.label :pickup_business_name %>
-    <%= form.hidden @restaurant.name, :order_pickup_business_name %>
+  <div class="field">
+    <%= hidden_field_tag @restaurant.name, :pickup_business_name %>
+  </div>      
 
   <div class="field">
     <%= form.label :dropoff_name %>
-    <%= form.text_field :dropoff_name, id: :order_dropoff_name %>
+    <%= form.text_field :dropoff_name, id: :dropoff_name %>
   </div>
 
   <div class="field">
     <%= form.label :dropoff_address %>
-    <%= form.text_field :dropoff_address, id: :order_dropoff_address %>
+    <%= form.text_field :dropoff_address, id: :dropoff_address %>
   </div>
 
   <div class="field">
     <%= form.label :dropoff_phone_number %>
-    <%= form.text_field :dropoff_phone_number, id: :order_dropoff_phone_number %>
+    <%= form.text_field :dropoff_phone_number, id: :dropoff_phone_number %>
   </div>
 
   <div class="field">
     <%= form.label :dropoff_business_name %>
-    <%= form.text_field :dropoff_business_name, id: :order_dropoff_business_name %>
+    <%= form.text_field :dropoff_business_name, id: :dropoff_business_name %>
   </div>
 
   <div class="field">
     <%= form.label :dropoff_notes %>
-    <%= form.text_field :dropoff_notes, id: :order_dropoff_notes %>
+    <%= form.text_field :dropoff_notes, id: :dropoff_notes %>
   </div>
 
   <div class="actions">
