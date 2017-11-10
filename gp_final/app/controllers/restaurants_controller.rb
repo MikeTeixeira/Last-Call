@@ -60,6 +60,7 @@ class RestaurantsController < ApplicationController
     @order = Order.create
   end
 
+
   # POST /menu/:restaurant_id
   # Submit menu item orders
   # Since order id was already created for menu_item_order, 
