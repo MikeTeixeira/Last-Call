@@ -36,9 +36,7 @@
         <td><%= restaurant.zipcode %></td>
         <td><%= restaurant.open_hours %> am</td>
         <td><%= restaurant.close_hours %> pm</td>
-        <% restaurant.orders.each do |order| %>
-          <%= order.pickup_address %>
-        <% end %>
+
 
 
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>

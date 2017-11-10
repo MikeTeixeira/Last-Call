@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:new, :show, :edit, :update, :destroy]
-  before_action :set_restaurant, only: [:new]
+  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:new, :create]
 
   # GET /orders
   # GET /orders.json
@@ -14,10 +14,9 @@ class OrdersController < ApplicationController
     @orders = current_user.restaurant.orders
   end
 
-  # GET /orders/new to take client information for the order
-  # Since order id was already created for menu_item_order, 
-  # we have to find the order and update the rest of the params
+  # POST /orders/new to take client information for the order
   def new
+    @order = current_user.orders.last
 
   end
 
@@ -34,7 +33,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    # @postmates_order = @order.postmates_client.create(order_params)
+    @postmates_order = @order.postmates_client.create(order_params)
     # @postmates_quote = @order.postmates_client.quote(quote_params)
 
     respond_to do |format|

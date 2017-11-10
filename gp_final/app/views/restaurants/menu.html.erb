@@ -4,33 +4,14 @@
 
 <h1>Menu Items</h1>
 
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody> -->
-
-
-<%= form_tag(new_order_path(@restaurant.id), method: "get") do %>
-
-  <% @restaurant.menu_items.each_with_index do |item,index| %>
+<%= form_tag(submit_menu_path(@restaurant.id), method: "post") do %>
+  <% @restaurant.menu_items.each_with_index do |item, index| %>
     <%= label_tag(:item_name, item.name) %>
     <%= hidden_field_tag "order[#{index}][item]", item.id %>
     <%= number_field_tag("order[#{index}][quantity]") %>
   <% end %>
-
+    
   <%= submit_tag("Order") %>
 <% end %>
-
-<!--   </tbody>
-</table> -->
-
 
 
