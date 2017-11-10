@@ -25,6 +25,21 @@
           zoom: 11
         });
      
+     const restaurants = <%= raw @restaurants.map{|loc| loc.to_h}.to_json %>;
+     restaurants.forEach( function(restaurant){
+         var marker = new google.maps.Marker({
+                       map: map,
+                       position: restaurant
+                      });
+         marker.setMap(map);
+       });
+
+
+
+
+       document.getElementById('submit').addEventListener('click', function() {
+         geocodeAddress(geocoder, map);
+     })
       infoWindow = new google.maps.InfoWindow;
 
        
