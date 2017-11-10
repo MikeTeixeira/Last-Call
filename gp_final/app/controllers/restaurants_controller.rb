@@ -101,14 +101,11 @@ class RestaurantsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
       @restaurant = Restaurant.find(params[:restaurant_id])
-<<<<<<< HEAD
-=======
     end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:order_id])
->>>>>>> 62ea4bbdd57f278688f8518e4f71af19e6e371e8
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
