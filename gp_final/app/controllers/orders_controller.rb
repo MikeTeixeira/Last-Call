@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    # @postmates_order = @order.postmates_client.create(order_params)
+    @postmates_order = @order.postmates_client.create(order_params)
     # @postmates_quote = @order.postmates_client.quote(quote_params)
 
     respond_to do |format|
