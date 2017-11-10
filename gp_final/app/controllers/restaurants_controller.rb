@@ -39,12 +39,33 @@ class RestaurantsController < ApplicationController
 
   end
 
+
+  # Show current users restaurants
+  def my_restaurants
+    render :personal_restaurants
+  end
+
+  #Show current users restaurant
+  def my_restaurant
+    render :personal_restaurant
+  end
+
+
+  def my_menu
+    render :personal_menu
+  end
+
+  # POST order into the menu_item_order table
+  def create_order
+    @order = Order.create
+
   # POST /menu/:restaurant_id
   # Submit menu item orders
   # Since order id was already created for menu_item_order, 
   # we have to find the order and update the rest of the params
   def submit_menu
     @order = Order.create! user_id: current_user.id, restaurant_id: @restaurant.id
+
     params[:order].each do |order_item|
         MenuItemOrder.create(order_id: @order.id, menu_item_id: params[:order][order_item][:item], quantity: params[:order][order_item][:quantity])
     end
