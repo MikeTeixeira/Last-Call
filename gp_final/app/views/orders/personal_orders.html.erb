@@ -1,0 +1,5 @@
+<h1>Your Current Orders</h1>
+
+<% @orders.each do |order| %>
+  <%= order.pickup_address %>
+  <% end %>

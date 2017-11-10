@@ -3,11 +3,28 @@ Rails.application.routes.draw do
 
 
   resources :ratings
-  resources :restaurants
-  resources :orders, :except => [:new]
+  #resources :restaurants
+  #resources :orders, :except => [:new]
+
+  resources :users do 
+    get 'restaurants' => 'restaurants#my_restaurants'
+    get 'restaurants' => 'restaurant#my_restaurant'
+    resources :restaurants, except: [:index, :show] do
+      resources :menus
+      get 'restaurants' => 'restaurants#my_menu'
+      resources :orders, except: [:index]
+      get 'orders' => 'orders#my_orders'
+    end
+  end
+
+  resources :restaurants do 
+    resources :orders
+  end
+
+  get 'users/:user_id/restaurants/:restaurant_id' => 'restaurants#my_restaurant', as: :my_restaurant
+
 
   get 'new/:restaurant_id' => 'orders#new', as: :new_order
-
 
   resources :users
 

@@ -17,6 +17,7 @@
 
   <tbody> -->
 
+
 <%= form_tag(new_order_path(@restaurant.id), method: "get") do %>
 
   <% @restaurant.menu_items.each_with_index do |item,index| %>

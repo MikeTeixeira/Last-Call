@@ -1,6 +1,9 @@
 <% if user_signed_in? %>
   	<%= link_to "Home", root_path %>
   	<%= link_to "About", about_us_path %>
+    <% if user_signed_in? && current_user.admin == true %>
+      <%= link_to "Your Restaurant", user_restaurants_path(current_user) %>
+    <% end %>  
   	<%= link_to "Restaurants", restaurants_path %>
   	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> 
 

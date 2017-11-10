@@ -34,6 +34,21 @@ class RestaurantsController < ApplicationController
 
   end
 
+  # Show current users restaurants
+  def my_restaurants
+    render :personal_restaurants
+  end
+
+  #Show current users restaurant
+  def my_restaurant
+    render :personal_restaurant
+  end
+
+
+  def my_menu
+    render :personal_menu
+  end
+
   # POST order into the menu_item_order table
   def create_order
     @order = Order.create

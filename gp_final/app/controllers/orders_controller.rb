@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @orders = current_user.restaurant.orders
   end
 
   # GET /orders/new to take client information for the order
@@ -22,6 +23,11 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+  end
+
+  def my_orders
+    @orders = current_user.orders.where(restaurant_id: params[:restaurant_id])
+    render :personal_orders
   end
 
   # POST /orders
