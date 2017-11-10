@@ -80,8 +80,8 @@ Restaurant.create([ {
 	state: "ny", 
 	city:"Manhattan", 
 	zipcode: '10038',
-	longitude: "-74.004983",
-    	latitude: "40.708235" ,
+	longitude: "-74.006835",
+    	latitude: "40.709556" ,
 	open_hours: "8", 
 	close_hours: "9" 
 	}, {
@@ -94,8 +94,8 @@ Restaurant.create([ {
 	state: "ny", 
 	city:"corona", 
 	zipcode: '12038', 
-	longitude: "-73.983763",
-   	 latitude: "40.727092",
+	longitude: "-74.006001",
+   	 latitude: "40.708308",
 	open_hours: "6" , 
 	close_hours:"7" 
 	}, {
@@ -108,6 +108,8 @@ Restaurant.create([ {
 	state: "ny", 
 	city:"downtown", 
 	zipcode: '10038', 
+	longitude: "-73.681358",
+    	latitude: "41.096579" ,
 	open_hours: "5", 
 	close_hours:"6" 
 	} ])
