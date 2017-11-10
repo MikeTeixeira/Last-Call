@@ -4,6 +4,10 @@
 
 <p>Order Reciept</p>
 
+      <tr>
+        <td><%= @quote.fee %></td>
+        <td><%= @quote.currency %></td>
+      </tr>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

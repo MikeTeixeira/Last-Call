@@ -40,7 +40,7 @@ Order.create([ {
 	pickup_phone_number: "(212)555-1234", 
 	pickup_business_name:"Poke bowl", 
 	dropoff_name: "Cam Crew", 
-	dropoff_address:"90 john street" , 
+	dropoff_address:"104 Fulton St, New York, NY" , 
 	dropoff_phone_number: "(718)123-4556", 
 	dropoff_business_name:"NYCDA", 
 	dropoff_notes: "Do not eat my food !"
@@ -52,7 +52,7 @@ Order.create([ {
 	pickup_phone_number:"(212)555-4567", 
 	pickup_business_name:"Jubulee", 
 	dropoff_name: "Christy", 
-	dropoff_address: "20 crew blvd", 
+	dropoff_address: "948 1st Avenue, New York, NY", 
 	dropoff_phone_number: "(718)123-4556", 
 	dropoff_business_name:"NYCDA", 
 	dropoff_notes: "Do not eat my food !"
@@ -64,7 +64,7 @@ Order.create([ {
 	pickup_phone_number: "(212)555-1234", 
 	pickup_business_name: "Poke bowl", 
 	dropoff_name: "Cam Crew", 
-	dropoff_address: "20", 
+	dropoff_address: "108 John St, New York, NY", 
 	dropoff_phone_number: "(718)789-4556", 
 	dropoff_business_name:"Toyota", 
 	dropoff_notes: "Do not eat my food !"

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :set_restaurant, only: [:new]
+  before_action :set_restaurant, only: [:new, :update]
 
   # GET /orders
   # GET /orders.json
@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @quote = Order.postmates_client.quote(pickup_address: @order.pickup_address, dropoff_address: @order.dropoff_address)
   end
 
   # POST /orders/new to take client information for the order
@@ -27,7 +28,7 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1.json
   def update
     respond_to do |format|
-      if @order.update(order_params)
+      if @order.update!(order_params)
         @postmates_order = Order.postmates_client.create(postmates_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated. Postmates will deliver it soon.' }
         format.json { render :show, status: :ok, location: @order }
@@ -60,15 +61,16 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :restaurant_id, :pickup_address, :pickup_phone_number, :pickup_business_name, :dropoff_name, :dropoff_address, :dropoff_phone_number, :dropoff_business_name, :dropoff_notes)
+      params.permit(:user_id, :restaurant_id, :pickup_address, :pickup_phone_number, :pickup_business_name).merge(params.require(:order).permit(:dropoff_name, :dropoff_address, :dropoff_phone_number, :dropoff_business_name, :dropoff_notes)) 
     end
 
     def postmates_params 
-      params.permit(:manifest, :pickup_name, :pickup_address, :pickup_phone_number, :pickup_business_name, :pickup_notes).merge( params.require(:order).permit(:dropoff_name, :dropoff_address, :dropoff_phone_number, :dropoff_business_name, :dropoff_notes)).to_h
+      params.permit(:manifest, :pickup_name, :pickup_address, :pickup_phone_number, :pickup_business_name, :pickup_notes).merge(params.require(:order).permit(:dropoff_name, :dropoff_address, :dropoff_phone_number, :dropoff_business_name, :dropoff_notes))
     end
 
-    def quote_params
-      params.require(:order).permit(:pickup_address, :dropoff_address)
+    def set_quote
+      quote_params = params.permit(:pickup_address).merge(params.require(:order).permit(:dropoff_address)).to_h
+      @quote = Order.postmates_client.quote(quote_params)
     end
 
 end
