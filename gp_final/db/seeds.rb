@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-
 User.create([ { 
 	id: 1, 
 	f_name: "Joan", 
@@ -33,6 +31,43 @@ User.create([ {
 	password: "test123",
 	admin: true
 	} ])
+
+Order.create([ {
+	id: 1,
+	user_id: 1, 
+	restaurant_id: 1, 
+	pickup_address: "90 john st",
+	pickup_phone_number: "(212)555-1234", 
+	pickup_business_name:"Poke bowl", 
+	dropoff_name: "Cam Crew", 
+	dropoff_address:"90 john street" , 
+	dropoff_phone_number: "(718)123-4556", 
+	dropoff_business_name:"NYCDA", 
+	dropoff_notes: "Do not eat my food !"
+	}, {
+	id: 2, 
+	user_id: 2, 
+	restaurant_id: 2,
+	pickup_address: "103-02 10st", 
+	pickup_phone_number:"(212)555-4567", 
+	pickup_business_name:"Jubulee", 
+	dropoff_name: "Christy", 
+	dropoff_address: "20 crew blvd", 
+	dropoff_phone_number: "(718)123-4556", 
+	dropoff_business_name:"NYCDA", 
+	dropoff_notes: "Do not eat my food !"
+	}, {
+	id: 3, 
+	user_id: 3, 
+	restaurant_id: 3, 
+	pickup_address: "90 john st", 
+	pickup_phone_number: "(212)555-1234", 
+	pickup_business_name: "Poke bowl", 
+	dropoff_name: "Cam Crew", 
+	dropoff_address: "20", 
+	dropoff_phone_number: "(718)789-4556", 
+	dropoff_business_name:"Toyota", 
+	dropoff_notes: "Do not eat my food !"
 
 Restaurant.create([ {
 	id: 1,
@@ -93,6 +128,43 @@ Rating.create([ {
 	restaurant_rating: 5 
 	} ])
 
+MenuItem.create([ {
+	id: 1,
+	restaurant_id: 1, 
+	name:"chicken bowl", 
+	category:8, 
+	price: 12.00, 
+	description:"chicken and rice in a bowl"
+	}, {
+	id: 2, 
+	restaurant_id: 1, 
+	name: "beef bowl", 
+	category: 8, 
+	price: 12.00, 
+	description:"beef and rice in a bowl"
+	}, {
+	id: 3,
+	restaurant_id: 1, 
+	name: "tuna bowl", 
+	category: 8, 
+	price: 12.00, 
+	description: "tuna and rice in a bowl"},
+	{
+	id: 4,
+	restaurant_id: 2, 
+	name: "beef stew", 
+	category: 9, 
+	price: 10.00, 
+	description: "beef in stew"
+	}, {
+	id: 5,
+	restaurant_id: 3, 
+	name: "pork thai slider", 
+	category: 10, 
+	price: 5.00, 
+	description: "pork in ginger sauce on a bun"
+	} ])
+
 Order.create!([
 	{user_id: 1, restaurant_id: 1, pickup_address:"90 john st"  , pickup_phone_number:"(212)555-1234" , pickup_business_name:"Poke bowl" , dropoff_name: "Cam Crew", dropoff_address:"90 john street" , dropoff_phone_number: "(718)123-4556" , dropoff_business_name:"NYCDA" , dropoff_notes: "Do not eat my food !"},
 	{user_id: 2, restaurant_id: 2,pickup_address:"103-02 10st"  , pickup_phone_number:"(212)555-4567" , pickup_business_name:"Jubulee" , dropoff_name: "Christy", dropoff_address:"20 crew blvd" , dropoff_phone_number: "(718)123-4556" , dropoff_business_name:"NYCDA" , dropoff_notes: "Do not eat my food !"},
@@ -115,5 +187,24 @@ MenuItemOrder.create!([
 	{order_id:3 , menu_item_id:3 , quantity:1}
 ])
 
-
-
+MenuItemOrder.create([ {
+	id: 1,
+	order_id: 1, 
+	menu_item_id: 1, 
+	quantity: 1
+	}, {
+	id: 2,
+	order_id: 1, 
+	menu_item_id: 2, 
+	quantity: 1
+	}, {
+	id: 3, 
+	order_id: 2, 
+	menu_item_id: 2, 
+	quantity: 1
+	}, {
+	id: 4,
+	order_id: 3, 
+	menu_item_id: 3, 
+	quantity: 1
+	} ])
