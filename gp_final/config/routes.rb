@@ -3,15 +3,12 @@ Rails.application.routes.draw do
 
 
   resources :ratings
-  resources :restaurants, :except => [:new]
+  resources :restaurants
   resources :orders, :except => [:new, :create]
 
   get 'new/:restaurant_id' => 'orders#new', as: :new_order
 
   post 'new/:restaurant_id' => 'orders#create', as: :create_order
-
-  get 'restaurants/:restaurant_id' => 'restaurants#new'
-
 
   resources :users
 

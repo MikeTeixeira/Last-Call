@@ -2,40 +2,8 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @order.user %>
-</p>
+<p>Order Reciept</p>
 
-<p>
-  <strong>Restaurant:</strong>
-  <%= @order.restaurant %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @order.image %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @order.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @order.description %>
-</p>
-
-<p>
-  <strong>Cost:</strong>
-  <%= @order.cost %>
-</p>
-
-<p>
-  <strong>Arrival:</strong>
-  <%= @order.arrival %>
-</p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
