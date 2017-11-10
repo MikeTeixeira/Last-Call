@@ -3,16 +3,16 @@ class RestaurantsController < ApplicationController
   # before_action :set_order, only: [:submit_order]
 
 
+
   # GET /restaurants
   # Show list of all restaurants
   def index
     @restaurants = Restaurant.all
     if params[:search]
-          @restaurants = Restaurant.search(params[:search]).order("created_at DESC")
-        else
-          @restaurants = Restaurant.all.order("created_at DESC")
-        end
-
+      @restaurants = Restaurant.search(params[:search]).order("created_at DESC")
+    else
+      @restaurants = Restaurant.all.order("created_at DESC")
+    end
   end
 
   # GET /restaurants/1
@@ -101,6 +101,14 @@ class RestaurantsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
       @restaurant = Restaurant.find(params[:restaurant_id])
+<<<<<<< HEAD
+=======
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_order
+      @order = Order.find(params[:order_id])
+>>>>>>> 62ea4bbdd57f278688f8518e4f71af19e6e371e8
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
