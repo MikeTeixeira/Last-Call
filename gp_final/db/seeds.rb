@@ -36,7 +36,7 @@ Restaurant.create!([ {
 	id: 1,
 	name: "Poke bowl", 
 	description: "the best food spot ever", 
-	category: 0, 
+	category: 2, 
 	phone_number:"(646)371-9773", 
 	address: "104 fulton st",
 	state: "ny", 
@@ -51,7 +51,7 @@ Restaurant.create!([ {
 	id: 2, 
 	name: "Jubulee", 
 	description: "One stop shop", 
-	category: 5, 
+	category: 0, 
 	phone_number: "(212)233-0808", 
 	address: "99 john st",
 	state: "ny", 
@@ -66,7 +66,7 @@ Restaurant.create!([ {
 	id: 3, 
 	name:"thai sliders & co", 
 	description: "yummy in your tummy", 
-	category: 6, 
+	category: 1, 
 	phone_number: "(212)406-4773", 
 	address:"108 john st",
 	state: "ny", 
@@ -117,48 +117,6 @@ Order.create!([ {
 	dropoff_notes: "Do not eat my food !"
 	} ])
 
-<<<<<<< HEAD
-Restaurant.create([ {
-	id: 1,
-	name: "Poke bowl", 
-	description: "the best food spot ever", 
-	category: 0, 
-	phone_number:"(212)555-1234", 
-	address: "104 Fulton St",
-	state: "NY", 
-	city:"New York", 
-	zipcode: '10038', 
-	open_hours: "8", 
-	close_hours: "9" 
-	}, {
-	id: 2, 
-	name: "Jubulee", 
-	description: "One stop shop", 
-	category: 5, 
-	phone_number: "(212)899-9098", 
-	address: "948 1st Avenue",
-	state: "NY", 
-	city:"New York", 
-	zipcode: '10022', 
-	open_hours: "6" , 
-	close_hours:"7" 
-	}, {
-	id: 3, 
-	name:"Thai Sliders & Co.", 
-	description: "yummy in your tummy", 
-	category: 6, 
-	phone_number: "(907)555-1234", 
-	address:"108 John St",
-	state: "NY", 
-	city:"New York", 
-	zipcode: '10038', 
-	open_hours: "5", 
-	close_hours:"6" 
-	} ])
-=======
->>>>>>> 1b73efa26bd1a4d08d28de707652e958ada4fa21
-
-
 Rating.create!([ {
 	id: 1, 
 	order_id: 1,
@@ -180,35 +138,35 @@ MenuItem.create!([ {
 	id: 1,
 	restaurant_id: 1, 
 	name:"chicken bowl", 
-	category:8, 
+	category:2, 
 	price: 12.00, 
 	description:"chicken and rice in a bowl"
 	}, {
 	id: 2, 
 	restaurant_id: 1, 
 	name: "beef bowl", 
-	category: 8, 
+	category: 2, 
 	price: 12.00, 
 	description:"beef and rice in a bowl"
 	}, {
 	id: 3,
 	restaurant_id: 1, 
 	name: "tuna bowl", 
-	category: 8, 
+	category: 2, 
 	price: 12.00, 
 	description: "tuna and rice in a bowl"},
 	{
 	id: 4,
 	restaurant_id: 2, 
 	name: "beef stew", 
-	category: 9, 
+	category: 2, 
 	price: 10.00, 
 	description: "beef in stew"
 	}, {
 	id: 5,
 	restaurant_id: 3, 
 	name: "pork thai slider", 
-	category: 10, 
+	category: 2, 
 	price: 5.00, 
 	description: "pork in ginger sauce on a bun"
 	} ])

@@ -3,10 +3,6 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :menu_items
   resources :ratings
-<<<<<<< HEAD
-  resources :restaurants
-=======
->>>>>>> 1b73efa26bd1a4d08d28de707652e958ada4fa21
   resources :orders, :except => [:new, :create]
 
 
@@ -28,19 +24,15 @@ Rails.application.routes.draw do
 
   post 'new/:restaurant_id' => 'orders#create', as: :create_order
 
-<<<<<<< HEAD
-=======
-
 
 
   get 'new/:restaurant_id' => 'orders#new', as: :new_order
 
->>>>>>> 1b73efa26bd1a4d08d28de707652e958ada4fa21
   resources :users
 
-  get 'menu/:id' => 'restaurants#menu', as: :menu
+  get 'menu/:restaurant_id' => 'restaurants#menu', as: :menu
 
-  post 'menu/:id' => 'restaurants#submit_menu', as: :submit_menu
+  post 'menu/:restaurant_id' => 'restaurants#submit_menu', as: :submit_menu
 
   get 'about' => 'about#index', :as => :about_us
 
