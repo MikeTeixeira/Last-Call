@@ -87,7 +87,7 @@ Order.create!([ {
 	pickup_phone_number: "(212)555-1234", 
 	pickup_business_name:"Poke bowl", 
 	dropoff_name: "Cam Crew", 
-	dropoff_address:"90 john street" , 
+	dropoff_address:"104 Fulton St, New York, NY" , 
 	dropoff_phone_number: "(718)123-4556", 
 	dropoff_business_name:"NYCDA", 
 	dropoff_notes: "Do not eat my food !"
@@ -99,7 +99,7 @@ Order.create!([ {
 	pickup_phone_number:"(212)555-4567", 
 	pickup_business_name:"Jubulee", 
 	dropoff_name: "Christy", 
-	dropoff_address: "20 crew blvd", 
+	dropoff_address: "948 1st Avenue, New York, NY", 
 	dropoff_phone_number: "(718)123-4556", 
 	dropoff_business_name:"NYCDA", 
 	dropoff_notes: "Do not eat my food !"
@@ -111,12 +111,52 @@ Order.create!([ {
 	pickup_phone_number: "(212)555-1234", 
 	pickup_business_name: "Poke bowl", 
 	dropoff_name: "Cam Crew", 
-	dropoff_address: "20", 
+	dropoff_address: "108 John St, New York, NY", 
 	dropoff_phone_number: "(718)789-4556", 
 	dropoff_business_name:"Toyota", 
 	dropoff_notes: "Do not eat my food !"
 	} ])
 
+<<<<<<< HEAD
+Restaurant.create([ {
+	id: 1,
+	name: "Poke bowl", 
+	description: "the best food spot ever", 
+	category: 0, 
+	phone_number:"(212)555-1234", 
+	address: "104 Fulton St",
+	state: "NY", 
+	city:"New York", 
+	zipcode: '10038', 
+	open_hours: "8", 
+	close_hours: "9" 
+	}, {
+	id: 2, 
+	name: "Jubulee", 
+	description: "One stop shop", 
+	category: 5, 
+	phone_number: "(212)899-9098", 
+	address: "948 1st Avenue",
+	state: "NY", 
+	city:"New York", 
+	zipcode: '10022', 
+	open_hours: "6" , 
+	close_hours:"7" 
+	}, {
+	id: 3, 
+	name:"Thai Sliders & Co.", 
+	description: "yummy in your tummy", 
+	category: 6, 
+	phone_number: "(907)555-1234", 
+	address:"108 John St",
+	state: "NY", 
+	city:"New York", 
+	zipcode: '10038', 
+	open_hours: "5", 
+	close_hours:"6" 
+	} ])
+=======
+>>>>>>> 1b73efa26bd1a4d08d28de707652e958ada4fa21
 
 
 Rating.create!([ {
