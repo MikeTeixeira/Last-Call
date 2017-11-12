@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu, :submit_menu]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu, :submit_menu, :my_restaurants, :my_menu]
   # before_action :set_order, only: [:submit_order]
 
 

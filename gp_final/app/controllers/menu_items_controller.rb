@@ -1,5 +1,6 @@
 class MenuItemsController < ApplicationController
   before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:new]
 
   # GET /menu_items
   # GET /menu_items.json
@@ -27,10 +28,11 @@ class MenuItemsController < ApplicationController
   # POST /menu_items.json
   def create
     @menu_item = MenuItem.new(menu_item_params)
+    @restaurant = Restaurant(params[:restaurant_id])
 
     respond_to do |format|
       if @menu_item.save
-        format.html { redirect_to user_restaurant_path, notice: 'Menu item was successfully created.' }
+        format.html { redirect_to user_restaurant_path(current_user), notice: 'Menu item was successfully created.' }
         format.json { render :show, status: :created, location: @menu_item }
       else
         format.html { render :new }
@@ -67,6 +69,10 @@ class MenuItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_menu_item
       @menu_item = MenuItem.find(params[:id])
+    end
+
+    def set_restaurant
+      @restaurant =  Restaurant.find(params[:restaurant_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
