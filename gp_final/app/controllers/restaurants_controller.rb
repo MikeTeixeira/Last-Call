@@ -42,11 +42,15 @@ class RestaurantsController < ApplicationController
 
   # Show current users restaurants
   def my_restaurants
+    
     render :personal_restaurants
   end
 
   #Show current users restaurant
   def my_restaurant
+    @orders = current_user.orders.where(restaurant_id: params[:id])
+    @restaurants = current_user.restaurants.where(params[:id])
+    @menu_item = MenuItem.all
     render :personal_restaurant
   end
 
@@ -123,7 +127,7 @@ class RestaurantsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
-      @restaurant = Restaurant.find(params[:id])
+      @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
     # Use callbacks to share common setup or constraints between actions.

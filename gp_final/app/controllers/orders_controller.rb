@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
   end
 
   def my_orders
-    @orders = current_user.orders.where(restaurant_id: params[:restaurant_id])
+    @orders = current_user.orders.where(restaurant_id: params[:id])
     render :personal_orders
   end
 

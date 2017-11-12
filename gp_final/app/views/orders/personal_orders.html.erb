@@ -1,5 +1,11 @@
 <h1>Your Current Orders</h1>
 
 <% @orders.each do |order| %>
-  <%= order.pickup_address %>
+  <p><%= order.pickup_address %></p>
+  <p><%= order.pickup_phone_number %></p>
+  <p><%= order.dropoff_name %></p>
+  <p><%= order.dropoff_address %></p>
+  <p><%= order.dropoff_phone_number %></p>
+  <p><%= order.dropoff_business_name %></p>
+  <p><%= order.dropoff_notes%></p>
   <% end %>

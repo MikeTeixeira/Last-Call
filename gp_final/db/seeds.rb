@@ -46,7 +46,7 @@ Restaurant.create!([ {
     	latitude: "40.709556" ,
 	open_hours: "8", 
 	close_hours: "9",
-	user_id: 3 
+	user_id: 1 
 	}, {
 	id: 2, 
 	name: "Jubulee", 
@@ -61,7 +61,7 @@ Restaurant.create!([ {
    	 latitude: "40.708308",
 	open_hours: "6" , 
 	close_hours:"7",
-	user_id: 3 
+	user_id: 2 
 	}, {
 	id: 3, 
 	name:"thai sliders & co", 
