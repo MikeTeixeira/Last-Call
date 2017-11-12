@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   end
 
 
-
   get 'users/:user_id/restaurants/:id' => 'restaurants#my_restaurant', as: :my_restaurant
 
   post 'new/:restaurant_id' => 'orders#create', as: :create_order

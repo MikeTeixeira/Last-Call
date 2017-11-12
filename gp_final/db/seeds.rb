@@ -43,7 +43,7 @@ Restaurant.create!([ {
 	city:"Manhattan", 
 	zipcode: '10038',
 	longitude: "-74.006835",
-    	latitude: "40.709556" ,
+    latitude: "40.709556" ,
 	open_hours: "8", 
 	close_hours: "9",
 	user_id: 1 
@@ -73,7 +73,7 @@ Restaurant.create!([ {
 	city:"downtown", 
 	zipcode: '10038', 
 	longitude: "-73.681358",
-    	latitude: "41.096579" ,
+    latitude: "41.096579" ,
 	open_hours: "5", 
 	close_hours:"6",
 	user_id: 3 
