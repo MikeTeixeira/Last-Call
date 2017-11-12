@@ -44,7 +44,7 @@ class MenuItemsController < ApplicationController
   def update
     respond_to do |format|
       if @menu_item.update(menu_item_params)
-        format.html { redirect_to my_restaurant_path(current_user), notice: 'Menu item was successfully updated.' }
+        format.html { redirect_to user_restaurant_menu_item_path(current_user) , notice: 'Menu item was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu_item }
       else
         format.html { render :edit }
