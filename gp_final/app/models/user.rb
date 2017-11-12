@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   validates :f_name, :presence => true
   validates :l_name, :presence => true
-  validates :admin, :presence => true
+
   validates :email, :presence => true
   validates :username, :presence => true
   validates :password, :presence => true
@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_many :orders
   has_many :ratings, through: :orders
   has_many :restaurants
+
+  def full_name
+    "#{f_name} #{l_name}"
+  end
 
 
 

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create([ { 
+User.create!([ { 
 	id: 1, 
 	f_name: "Joan", 
 	l_name:"Borbon", 
@@ -32,7 +32,54 @@ User.create([ {
 	admin: true
 	} ])
 
-Order.create([ {
+Restaurant.create!([ {
+	id: 1,
+	name: "Poke bowl", 
+	description: "the best food spot ever", 
+	category: 0, 
+	phone_number:"(646)371-9773", 
+	address: "104 fulton st",
+	state: "ny", 
+	city:"Manhattan", 
+	zipcode: '10038',
+	longitude: "-74.006835",
+    	latitude: "40.709556" ,
+	open_hours: "8", 
+	close_hours: "9",
+	user_id: 1 
+	}, {
+	id: 2, 
+	name: "Jubulee", 
+	description: "One stop shop", 
+	category: 5, 
+	phone_number: "(212)233-0808", 
+	address: "99 john st",
+	state: "ny", 
+	city:"corona", 
+	zipcode: '12038', 
+	longitude: "-74.006001",
+   	 latitude: "40.708308",
+	open_hours: "6" , 
+	close_hours:"7",
+	user_id: 2 
+	}, {
+	id: 3, 
+	name:"thai sliders & co", 
+	description: "yummy in your tummy", 
+	category: 6, 
+	phone_number: "(212)406-4773", 
+	address:"108 john st",
+	state: "ny", 
+	city:"downtown", 
+	zipcode: '10038', 
+	longitude: "-73.681358",
+    	latitude: "41.096579" ,
+	open_hours: "5", 
+	close_hours:"6",
+	user_id: 3 
+	} ])
+
+Order.create!([ {
 	id: 1,
 	user_id: 1, 
 	restaurant_id: 1, 
@@ -70,6 +117,7 @@ Order.create([ {
 	dropoff_notes: "Do not eat my food !"
 	} ])
 
+<<<<<<< HEAD
 Restaurant.create([ {
 	id: 1,
 	name: "Poke bowl", 
@@ -107,8 +155,11 @@ Restaurant.create([ {
 	open_hours: "5", 
 	close_hours:"6" 
 	} ])
+=======
+>>>>>>> 1b73efa26bd1a4d08d28de707652e958ada4fa21
 
-Rating.create([ {
+
+Rating.create!([ {
 	id: 1, 
 	order_id: 1,
 	review: "best evaaaa", 
@@ -125,7 +176,7 @@ Rating.create([ {
 	restaurant_rating: 5 
 	} ])
 
-MenuItem.create([ {
+MenuItem.create!([ {
 	id: 1,
 	restaurant_id: 1, 
 	name:"chicken bowl", 
@@ -162,7 +213,7 @@ MenuItem.create([ {
 	description: "pork in ginger sauce on a bun"
 	} ])
 
-MenuItemOrder.create([ {
+MenuItemOrder.create!([ {
 	id: 1,
 	order_id: 1, 
 	menu_item_id: 1, 

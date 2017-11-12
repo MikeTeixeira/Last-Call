@@ -5,7 +5,6 @@
 <h1>Menu Items</h1>
 
 <%= form_tag(submit_menu_path(@restaurant.id), method: "post") do %>
-
   <% @restaurant.menu_items.each_with_index do |item, index| %>
     <%= label_tag(:item_name, item.name) %>
     <%= hidden_field_tag "order[#{index}][item]", item.id %>

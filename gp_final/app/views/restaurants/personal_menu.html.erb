@@ -1,0 +1,9 @@
+<h1>My menu</h1>
+
+<% current_user.restaurants.each do |restaurant| %>
+  <% restaurant.menu_items.each do |menu_item| %>
+    <%= menu_item.name %>
+    <%= menu_item.price %>
+  <% end %>
+<% end %>
+

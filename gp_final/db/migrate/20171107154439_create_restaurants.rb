@@ -11,6 +11,8 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
       t.string :zipcode
       t.string :open_hours
       t.string :close_hours
+      t.float :longitude
+      t.float :latitude
       t.references :user, foreign_key: true
 
       

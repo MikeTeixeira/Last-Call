@@ -21,10 +21,22 @@
    var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.7831 , lng: -73.9712 }, 
-          zoom: 11
+          center: {lat:40.709556, lng:-74.006835}, 
+          zoom: 13
         });
      
+     const restaurants = <%= raw @restaurants.map{|loc| loc.to_h}.to_json %>;
+     restaurants.forEach( function(restaurant){
+         var marker = new google.maps.Marker({
+                       map: map,
+                       position: restaurant
+                      });
+         marker.setMap(map);
+       });
+
+  document.getElementById('submit').addEventListener('click', function() {
+         geocodeAddress(geocoder, map);
+     })
       infoWindow = new google.maps.InfoWindow;
 
        
@@ -95,17 +107,11 @@
 
         <td><%= restaurant.open_hours %> am</td>
         <td><%= restaurant.close_hours %> pm</td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <% if can? :edit, Restaurant %>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <% end %>
-
-        <% if can? :destroy, Restaurant %>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
       </tr>
   </tbody>
   <% end %>
 </table>
 
 <br>
+
+<%= link_to "New Restaurant " ,new_restaurant_path%>

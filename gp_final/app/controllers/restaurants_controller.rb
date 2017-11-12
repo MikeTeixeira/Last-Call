@@ -39,12 +39,39 @@ class RestaurantsController < ApplicationController
 
   end
 
+
+  # Show current users restaurants
+  def my_restaurants
+    
+    render :personal_restaurants
+  end
+
+  #Show current users restaurant
+  def my_restaurant
+    @orders = current_user.orders.where(restaurant_id: params[:id])
+    @restaurants = current_user.restaurants.where(params[:id])
+    @menu_item = MenuItem.all
+    render :personal_restaurant
+  end
+
+
+  def my_menu
+    render :personal_menu
+  end
+
+  # POST order into the menu_item_order table
+  def create_order
+    @order = Order.create
+  end
+
+
   # POST /menu/:restaurant_id
   # Submit menu item orders
   # Since order id was already created for menu_item_order, 
   # we have to find the order and update the rest of the params
   def submit_menu
     @order = Order.create! user_id: current_user.id, restaurant_id: @restaurant.id
+
     params[:order].each do |order_item|
         MenuItemOrder.create(order_id: @order.id, menu_item_id: params[:order][order_item][:item], quantity: params[:order][order_item][:quantity])
     end
@@ -110,6 +137,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :description, :phone_number, :address, :state, :city, :zipcode, :open_hours, :close_hours)
+      params.require(:restaurant).permit(:name, :description, :phone_number, :address, :state, :city, :zipcode, :open_hours, :close_hours,:latitude,:longitude) 
     end
 end

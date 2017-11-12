@@ -11,7 +11,11 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+<<<<<<< HEAD
     @quote = Order.postmates_client.quote(pickup_address: @order.pickup_address, dropoff_address: @order.dropoff_address)
+=======
+    @orders = current_user.restaurant.orders
+>>>>>>> 1b73efa26bd1a4d08d28de707652e958ada4fa21
   end
 
   # POST /orders/new to take client information for the order
@@ -24,6 +28,32 @@ class OrdersController < ApplicationController
   def edit
   end
 
+<<<<<<< HEAD
+=======
+  def my_orders
+    @orders = current_user.orders.where(restaurant_id: params[:id])
+    render :personal_orders
+  end
+
+  # POST /orders
+  # POST /orders.json
+  def create
+    @order = Order.new(order_params)
+    @postmates_order = @order.postmates_client.create(order_params)
+    # @postmates_quote = @order.postmates_client.quote(quote_params)
+
+    respond_to do |format|
+      if @postmates_order.save
+        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.json { render :show, status: :created, location: @order }
+      else
+        format.html { render :new }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+>>>>>>> 1b73efa26bd1a4d08d28de707652e958ada4fa21
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
