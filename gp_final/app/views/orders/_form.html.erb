@@ -16,7 +16,13 @@
   </div>
 
   <div class="field">
-    <%= hidden_field_tag :pickup_address, @restaurant.address %>
+    <%= hidden_field_tag :manifest, 'Food order' %>
+    <%= hidden_field_tag :pickup_name, 'Driver name' %>
+    <%= hidden_field_tag :pickup_notes, 'Call the customer when you get there!' %>
+  </div>
+
+  <div class="field">
+    <%= hidden_field_tag :pickup_address, @restaurant.address + ', ' + @restaurant.city + ' ' + @restaurant.state %>
   </div>
 
   <div class="field">
@@ -24,7 +30,7 @@
   </div>
 
   <div class="field">
-    <%= hidden_field_tag @restaurant.name, :pickup_business_name %>
+    <%= hidden_field_tag :pickup_business_name, @restaurant.name %>
   </div>      
 
   <div class="field">
