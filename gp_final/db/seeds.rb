@@ -43,7 +43,7 @@ Restaurant.create!([ {
 	city:"Manhattan", 
 	zipcode: '10038',
 	longitude: "-74.006835",
-    	latitude: "40.709556" ,
+    latitude: "40.709556" ,
 	open_hours: "8", 
 	close_hours: "9",
 	user_id: 1 
@@ -73,7 +73,7 @@ Restaurant.create!([ {
 	city:"downtown", 
 	zipcode: '10038', 
 	longitude: "-73.681358",
-    	latitude: "41.096579" ,
+    latitude: "41.096579" ,
 	open_hours: "5", 
 	close_hours:"6",
 	user_id: 3 
@@ -116,48 +116,6 @@ Order.create!([ {
 	dropoff_business_name:"Toyota", 
 	dropoff_notes: "Do not eat my food !"
 	} ])
-
-<<<<<<< HEAD
-Restaurant.create([ {
-	id: 1,
-	name: "Poke bowl", 
-	description: "the best food spot ever", 
-	category: 0, 
-	phone_number:"(212)555-1234", 
-	address: "104 Fulton St",
-	state: "NY", 
-	city:"New York", 
-	zipcode: '10038', 
-	open_hours: "8", 
-	close_hours: "9" 
-	}, {
-	id: 2, 
-	name: "Jubulee", 
-	description: "One stop shop", 
-	category: 5, 
-	phone_number: "(212)899-9098", 
-	address: "948 1st Avenue",
-	state: "NY", 
-	city:"New York", 
-	zipcode: '10022', 
-	open_hours: "6" , 
-	close_hours:"7" 
-	}, {
-	id: 3, 
-	name:"Thai Sliders & Co.", 
-	description: "yummy in your tummy", 
-	category: 6, 
-	phone_number: "(907)555-1234", 
-	address:"108 John St",
-	state: "NY", 
-	city:"New York", 
-	zipcode: '10038', 
-	open_hours: "5", 
-	close_hours:"6" 
-	} ])
-=======
->>>>>>> 1b73efa26bd1a4d08d28de707652e958ada4fa21
-
 
 Rating.create!([ {
 	id: 1, 
