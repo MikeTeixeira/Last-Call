@@ -31,9 +31,9 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get 'menu/:id' => 'restaurants#menu', as: :menu
+  get 'menu/:restaurant_id' => 'restaurants#menu', as: :menu
 
-  post 'menu/:id' => 'restaurants#submit_menu', as: :submit_menu
+  post 'menu/:restaurant_id' => 'restaurants#submit_menu', as: :submit_menu
 
   get 'about' => 'about#index', :as => :about_us
 
