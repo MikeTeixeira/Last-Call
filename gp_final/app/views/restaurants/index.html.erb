@@ -22,16 +22,39 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat:40.709556, lng:-74.006835}, 
-          zoom: 13
+          zoom: 16
         });
+ // restaurant marker
+ 
+ // var content = "test text";
+ // var infowindow = new google.maps.InfoWindow({
+ //  content: content
+ // });
      
      const restaurants = <%= raw @restaurants.map{|loc| loc.to_h}.to_json %>;
      restaurants.forEach( function(restaurant){
+       var infowindow = new google.maps.InfoWindow({
+        content: `<p><h6>${restaurant.image}${restaurant.name}</h6>
+        ${restaurant.address} 
+        ${restaurant.state} 
+        ${restaurant.city} 
+        ${restaurant.zipcode}
+
+        <br>
+        <br>
+        ${restaurant.description}
+        </p>`
+       });
          var marker = new google.maps.Marker({
                        map: map,
-                       position: restaurant
+                       position: restaurant,
+                       
                       });
          marker.setMap(map);
+         marker.addListener('click', function() {
+          infowindow.open(map,marker)
+         });
+         
        });
 
   document.getElementById('submit').addEventListener('click', function() {
@@ -67,6 +90,10 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+
+      // -------------------------
+      
+
     
     </script>
     <script async defer
