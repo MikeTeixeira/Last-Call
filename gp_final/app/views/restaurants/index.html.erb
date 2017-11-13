@@ -35,7 +35,7 @@
      const restaurants = <%= raw @restaurants.map{|loc| loc.to_h}.to_json %>;
      restaurants.forEach( function(restaurant){
        var infowindow = new google.maps.InfoWindow({
-        content: `<p><h6>${restaurant.image}${restaurant.name}</h6>
+        content: `<p> <img src= "${restaurant.image}"><h6>${restaurant.name}</h6>
         ${restaurant.address} 
         ${restaurant.state} 
         ${restaurant.city} 
