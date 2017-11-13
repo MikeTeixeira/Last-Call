@@ -2,11 +2,13 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Restaurants</h1>
+<h1>LastCall</h1>
 
+<!-- If there are no restaurants -->
 <% if @restaurants.blank? %>
   <h4>There are no restaurants with that name <%= params[:name] %>.</h4>
 <% end %>
+
 <!-- map styling  -->
 <style>
   #map{
@@ -14,7 +16,6 @@
     width: 100%;
   }
 </style>
-<h3> Google Maps</h3>
 <div id="map"></div>
 <script>
 // map options 
@@ -91,54 +92,44 @@
         infoWindow.open(map);
       }
 
-      // -------------------------
-      
+</script>
 
-    
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfsL2AIQqCWEYR-ACZ4BOcC-_N7upMXXA&callback=initMap">
-    </script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfsL2AIQqCWEYR-ACZ4BOcC-_N7upMXXA&callback=initMap">
+</script>
 
+<!-- Search bar for restaurants -->
+<%= form_tag(restaurants_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :location, params[:location], placeholder: "Delivery address..." %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search restaurants..." %>
+  <%= submit_tag "Search", :name => nil %>
+  <button>Cuisine</button>
+  <button>Filter</button>
+<% end %> 
 
-
-
+<!-- List of restaurants -->
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Phone number</th>
-      <th>Address</th>
-      <th>State</th>
-      <th>City</th>
-      <th>Zipcode</th> 
-      <th>Open hours</th>
-      <th>Close hours</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
-        <td><%= link_to restaurant.name, menu_path(restaurant.id) %></td>
+        <td>
+          0.9 miles<br>
+          45 - 55 mins
+        </td>
+        <td class="placeholder-img"><img src="placeholder.jpg"></td>
+        <td>
+          <span style="font-size: 1.15em;"><%= link_to restaurant.name, menu_path(restaurant.id) %></span><br>
+          Japanese
+        </td>
         <td><%= restaurant.description %></td>
-        <td><%= restaurant.phone_number %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.state %></td>
-        <td><%= restaurant.city %></td>
-        <td><%= restaurant.zipcode %></td>
-
-        <td><%= restaurant.open_hours %> am</td>
-        <td><%= restaurant.close_hours %> pm</td>
+        <td style="padding-right: 25px;">
+          &#9733;&#9733;&#9733;&#9733;&#9733;<br>
+          25 Ratings<br>
+          $$$
+        </td>
       </tr>
   </tbody>
   <% end %>
 </table>
 
-<br>
-
-<%= link_to "New Restaurant " ,new_restaurant_path%>

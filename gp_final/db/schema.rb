@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171107204259) do
   create_table "menu_items", force: :cascade do |t|
     t.integer "restaurant_id"
     t.string "name"
-    t.integer "category"
+    t.integer "category", default: 0
     t.decimal "price"
     t.text "description"
     t.datetime "created_at", null: false

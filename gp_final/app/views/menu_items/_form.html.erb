@@ -12,17 +12,28 @@
   <% end %>
 
   <div>
-    <%= form.hidden_field :restaurant_id, id: :restaurant_id %>
+    <%= hidden_field_tag :restaurant_id, params[:restaurant_id] %>
   </div>
 
   <div class="field">
-    <%= form.select :menu_item_category, MenuItem.categories.keys %>
+    <%= form.select :category, MenuItem.categories.keys %>
   </div>
   
 
   <div class="field">
+    <%= form.label "Menu Item Name" %>
     <%= form.text_field :name, id: :menu_item_name %>
   </div>
+
+  <div class="field">
+    <%= form.label "Menu Item price" %>
+    <%= form.text_field :price, id: :menu_item_price, :value => (number_with_precision(form.object.price, :precision => 2) || 0) %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :description, id: :menu_item_description %>
+  </div>
+  
 
   </div>
 

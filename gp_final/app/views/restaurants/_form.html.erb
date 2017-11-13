@@ -42,6 +42,11 @@
   </div>
 
   <div class="field">
+    <%= form.label "Restaurant Type" %>
+    <%= form.select :category, Restaurant.categories.keys.to_a %>
+  </div>
+
+  <div class="field">
     <%= form.label :state %>
     <%= form.text_field :state, :maxlength => 2, id: :restaurant_state %>
   </div>

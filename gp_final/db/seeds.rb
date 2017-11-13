@@ -36,7 +36,7 @@ Restaurant.create!([ {
 	id: 1,
 	name: "Poke Bowl", 
 	description: "Poke Bowl is a healthy Hawaiian fast food restaurant that offers a broad selection of freshly prepared raw fish or meat in a rice or salad bowl. To top it all of an assortment of mouthwatering toppings and sauces.", 
-	category: 2, 
+	category: 1, 
 	phone_number:"(646)371-9773", 
 	address: "104 Fulton St",
 	state: "NY", 
@@ -205,21 +205,21 @@ MenuItem.create!([ {
 	id: 1,
 	restaurant_id: 1, 
 	name:"Poke Bowl Special", 
-	category:2, 
+	category: 1, 
 	price: 12.00, 
 	description:"Tuna, Kani Salad, Edamame, Scallion, Seaweed Salad, Kani, Shredded Nori, Poke Bowl House Sauce."
 	}, {
 	id: 2, 
 	restaurant_id: 1, 
 	name: "Honolulu Salmon", 
-	category: 2, 
+	category: 3, 
 	price: 12.00, 
 	description:"Salmon, Spicy Salmon, Cucumber, Edamame, Scallions, Red Onion, Mango, Masago, Crispy Onions, Spicy Ponzu."
 	}, {
 	id: 3,
 	restaurant_id: 1, 
 	name: "Nacho Supreme", 
-	category: 2, 
+	category: 1, 
 	price: 12.00, 
 	description: "Spicy Negitoro, Tortilla Chips, Cilantro, Edamame, Cucumber, Red Onion, Jalapenos, Scallions, Tomato, Wasabi Peas, Sriracha Aioli."
 	}, {
