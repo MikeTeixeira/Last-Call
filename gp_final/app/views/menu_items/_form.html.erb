@@ -19,14 +19,18 @@
     <%= form.select :category, MenuItem.categories.keys %>
   </div>
   
+  <div class="field">
+    <%= form.label "Is This Dish On Sale?" %>
+    <%= form.select :status, MenuItem.statuses.keys %>
+  </div>
 
   <div class="field">
-    <%= form.label "Menu Item Name" %>
+    <%= form.label "Name" %>
     <%= form.text_field :name, id: :menu_item_name %>
   </div>
 
   <div class="field">
-    <%= form.label "Menu Item price" %>
+    <%= form.label "Price" %>
     <%= form.text_field :price, id: :menu_item_price, :value => (number_with_precision(form.object.price, :precision => 2) || 0) %>
   </div>
 

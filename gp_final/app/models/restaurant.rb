@@ -1,7 +1,7 @@
 class Restaurant < ApplicationRecord
   has_many :orders
   has_many :ratings, through: :orders
-  has_many :menu_items
+  has_many :menu_items, dependent: :destroy
   has_many :users
 
   enum category: ["Select Your Restaurant Type", :Seafood, :Spanish, :Pizza, :Hawaiian, :Chinese, :Italian, :Thai, :Portuguese, :Indian, :Halal]
