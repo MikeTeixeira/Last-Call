@@ -19,6 +19,7 @@ class RestaurantsController < ApplicationController
   # Show restaurant profile
   def show
     @restaurant = Restaurant.find(params[:id])
+    @menu_item = Menuitem.find(params[:id])
   end
 
   # GET /restaurants/new
@@ -42,7 +43,6 @@ class RestaurantsController < ApplicationController
 
   # Show current users restaurants
   def my_restaurants
-    
     render :personal_restaurants
   end
 
@@ -51,6 +51,7 @@ class RestaurantsController < ApplicationController
     @orders = current_user.orders.where(restaurant_id: params[:restaurant_id])
     @menu_items = MenuItem.where(restaurant_id: params[:restaurant_id] )
     render :personal_restaurant
+    # @appetizers = MenuItem.where(@menu_items.categories === [0])
   end
 
 
@@ -136,6 +137,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :description, :phone_number, :address, :state, :city, :zipcode, :open_hours, :close_hours,:latitude,:longitude) 
+      params.require(:restaurant).permit(:name, :description, :phone_number, :address, :state, :category, :city, :zipcode, :open_hours, :close_hours,:latitude,:longitude) 
     end
 end

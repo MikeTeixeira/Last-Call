@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :restaurants
-  resources :menu_items, :except => [:show]
+  resources :menu_items
   resources :ratings
   resources :orders, :except => [:new, :create]
 
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get 'restaurants' => 'restaurants#my_restaurant'
     resources :restaurants, except: [:index, :show] do
       resources :menu_items, except: [:index] do
-      get 'menu_items' => 'restaurants#my_menu'
+      # get 'menu_items' => 'restaurants#my_menu'
       get 'restaurants' => 'restaurants#my_menu'
       resources :orders, except: [:index]
       get 'orders' => 'orders#my_orders'
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   # Restaurant routes
   get 'users/:user_id/restaurants/:restaurant_id' => 'restaurants#my_restaurant', as: :my_restaurant
+
+
 
   # Order routes
   post 'new/:restaurant_id' => 'orders#create', as: :create_order
