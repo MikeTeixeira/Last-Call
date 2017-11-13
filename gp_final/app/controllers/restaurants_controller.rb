@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu, :submit_menu, :my_restaurant, :my_menu]
+  before_action :set_restaurant, only: [:edit, :update, :destroy, :menu, :submit_menu, :my_restaurant, :my_menu]
   # before_action :set_order, only: [:submit_order]
 
 
@@ -19,7 +19,7 @@ class RestaurantsController < ApplicationController
   # Show restaurant profile
   def show
     @restaurant = Restaurant.find(params[:id])
-    @menu_item = Menuitem.find(params[:id])
+    @menu_item = MenuItem.find(params[:id])
   end
 
   # GET /restaurants/new

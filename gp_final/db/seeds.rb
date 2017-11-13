@@ -47,7 +47,7 @@ Restaurant.create!([ {
 	open_hours: "8:00AM", 
 	close_hours: "9:00PM",
 	user_id: 1 ,
-	image: nil
+	image: File.new('app/assets/images/photos/pokebowl.jpg')
 	}, {
 	id: 2, 
 	name: "Jubilee Market Place", 
@@ -63,7 +63,7 @@ Restaurant.create!([ {
 	open_hours: "6:00AM" , 
 	close_hours:"7:00PM",
 	user_id: 2 ,
-	image: nil
+	image: File.new('app/assets/images/photos/jubilee.png')
 	}, {
 	id: 3, 
 	name:"Thai Sliders & Co.", 
@@ -90,28 +90,28 @@ Restaurant.create!([ {
 	state: "NY", 
 	city:"New York", 
 	zipcode: '10038', 
-	longitude: "-73.681358",
-    latitude: "41.096579" ,
+	longitude: "-74.006561",
+    latitude: "40.709926" ,
 	open_hours: "11:00AM", 
 	close_hours:"10:00PM",
 	user_id: 3,
-	image: nil 
+	image: File.new('app/assets/images/photos/meltshop.jpg')
 	}, {
 	id: 5, 
 	name:"GRK Fresh Greek", 
 	description: "Modern, counter-serve cafe offering design-your-own casual Greek fare in a bright, airy space.", 
 	category: 1, 
 	phone_number: "(212)385-2010", 
-	address:"111 Fulton St",
+	address:"51 E 8th St",
 	state: "NY", 
 	city:"New York", 
 	zipcode: '10038', 
-	longitude: "-73.681358",
-    latitude: "41.096579" ,
+	longitude: "-73.993665",
+    latitude: "40.731260" ,
 	open_hours: "12:00PM", 
 	close_hours:"10:00PM",
 	user_id: 3 ,
-	image:nil
+	image: File.new('app/assets/images/photos/grk.png')
 	}, {
 	id: 6, 
 	name:"Bonchon Chicken", 
@@ -122,12 +122,12 @@ Restaurant.create!([ {
 	state: "NY", 
 	city:"New York", 
 	zipcode: '10038', 
-	longitude: "-73.681358",
-    latitude: "41.096579" ,
+	longitude: "-74.006235",
+    latitude: "40.707694" ,
 	open_hours: "11:00AM", 
 	close_hours:"11:00PM",
 	user_id: 1 ,
-	image:nil
+	image: File.new('app/assets/images/photos/bonchon.jpeg')
 	}, {
 	id: 7, 
 	name:"Niko Niko", 
@@ -138,12 +138,12 @@ Restaurant.create!([ {
 	state: "NY", 
 	city:"New York", 
 	zipcode: '10005', 
-	longitude: "-73.681358",
-    latitude: "41.096579" ,
+	longitude: "-74.005015",
+    latitude: "40.707179" ,
 	open_hours: "11:00AM", 
 	close_hours:"8:00PM",
 	user_id: 3,
-	image:nil
+	image: nil
 	} ])
 
 Order.create!([ {
