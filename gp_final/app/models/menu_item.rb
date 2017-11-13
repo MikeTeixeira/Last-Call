@@ -5,6 +5,4 @@ class MenuItem < ApplicationRecord
 
   enum category: ["Select entree type", :Appetizer, :Lunch, :Dinner]
 
-
-
 end
