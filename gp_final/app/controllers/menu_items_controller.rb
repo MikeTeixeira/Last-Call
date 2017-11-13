@@ -11,28 +11,26 @@ class MenuItemsController < ApplicationController
   # GET /menu_items/1
   # GET /menu_items/1.json
   def show
-    @user = User.find(params[:id])
-    @restaurant = Restaurant.find(params[:id])
-    @menu_item = @restaurant.menu_items.new
+
   end
 
   # GET /menu_items/new
   def new
     @menu_item = MenuItem.new
-    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   # GET /menu_items/1/edit
   def edit
+    @categories = MenuItem.categories
   end
 
   # POST /menu_items
   # POST /menu_items.json
   def create
     @menu_item = MenuItem.new(menu_item_params)
-
+    @menu_item.restaurant = @restaurant
     respond_to do |format|
-      if @menu_item.save
+      if @menu_item.save!
         format.html { redirect_to :root, notice: 'Menu item was successfully created.' }
         format.json { render :show, status: :created, location: @menu_item }
       else
@@ -45,6 +43,7 @@ class MenuItemsController < ApplicationController
   # PATCH/PUT /menu_items/1
   # PATCH/PUT /menu_items/1.json
   def update
+    @categories = MenuItem.categories
     respond_to do |format|
       if @menu_item.update(menu_item_params)
         format.html { redirect_to user_restaurant_menu_item_path(@restaurant.id, current_user) , notice: 'Menu item was successfully updated.' }
@@ -78,6 +77,6 @@ class MenuItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_item_params
-      params.require(:menu_item).permit(:restaurant_id, :user_id)
+      params.require(:menu_item).permit(:restaurant_id, :user_id, :name, :category, :price, :description)
     end
 end

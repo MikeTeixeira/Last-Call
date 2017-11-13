@@ -1,13 +1,37 @@
-<% @menu_items.each do |menu_item| %>
-<h1><%= menu_item.name %></h1>
-<p><%= menu_item.description %></p>
+
 
 <%= render template: 'orders/personal_orders' %>
 <%= render template: 'restaurants/personal_menu' %>
 
-<td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
-
+<h2>Appetizers</h2>
+<% @menu_items.each do |menu_item| %>
+ <% if menu_item.category == "Appetizer" %>   
+  <h3><%= menu_item.name %></h3>
+  <p><%= menu_item.description %></p>
+  <p><%= menu_item.price %></p>
+  <td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
+  <% end %>
 <% end %>
 
-<td><%= link_to 'New', new_user_restaurant_menu_item_path(current_user, @restaurant.id) %></td>
+<h2>Lunch</h2>
+<% @menu_items.each do |menu_item| %>
+  <% if menu_item.category == "Lunch" %>
+  <h3><%= menu_item.name %></h3>
+  <p><%= menu_item.description %></p>
+  <p><%= menu_item.price %></p>
+  <td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
+  <% end %>
+<% end %>
+
+<h2>Dinner</h2>
+<% @menu_items.each do |menu_item| %>
+  <% if menu_item.category == "Dinner" %>
+  <h3><%= menu_item.name %></h3>
+  <p><%= menu_item.description %></p>
+  <p><%= menu_item.price %></p>
+  <td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
+  <% end %>
+<% end %>
+
+<td><%= link_to 'New', new_user_restaurant_menu_item_path(current_user, @restaurant.id, @menu_items) %></td>
 

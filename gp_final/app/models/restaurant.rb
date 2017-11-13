@@ -4,6 +4,8 @@ class Restaurant < ApplicationRecord
   has_many :menu_items
   has_many :users
 
+  enum category: ["Select Your Restaurant Type", :Seafood, :Spanish, :Pizza, :Hawaiian, :Chinese, :Italian, :Thai, :Portuguese, :Indian, :Halal]
+
 
 
   def full_address
