@@ -1,6 +1,6 @@
 class MenuItemsController < ApplicationController
-  before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_restaurant, only: [:new]
+  before_action :set_menu_item, only: [:edit, :update, :destroy]
+  before_action :set_restaurant, only: [:new, :create]
 
   # GET /menu_items
   # GET /menu_items.json
@@ -11,8 +11,6 @@ class MenuItemsController < ApplicationController
   # GET /menu_items/1
   # GET /menu_items/1.json
   def show
-    @user = User.find(params[:id])
-    @menu_items = @user.menu_items
   end
 
   # GET /menu_items/new
@@ -28,11 +26,10 @@ class MenuItemsController < ApplicationController
   # POST /menu_items.json
   def create
     @menu_item = MenuItem.new(menu_item_params)
-    @restaurant = Restaurant(params[:restaurant_id])
 
     respond_to do |format|
       if @menu_item.save
-        format.html { redirect_to user_restaurant_path(current_user), notice: 'Menu item was successfully created.' }
+        format.html { redirect_to :root, notice: 'Menu item was successfully created.' }
         format.json { render :show, status: :created, location: @menu_item }
       else
         format.html { render :new }
@@ -77,6 +74,6 @@ class MenuItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_item_params
-      params.require(:menu_item).permit(:name)
+      params.require(:menu_item).permit(:restaurant_id, :user_id)
     end
 end
