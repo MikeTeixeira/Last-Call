@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu, :submit_menu, :my_restaurants, :my_menu]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :menu, :submit_menu, :my_restaurant, :my_menu]
   # before_action :set_order, only: [:submit_order]
 
 
@@ -48,9 +48,8 @@ class RestaurantsController < ApplicationController
 
   #Show current users restaurant
   def my_restaurant
-    @orders = current_user.orders.where(restaurant_id: params[:id])
-    @restaurants = current_user.restaurants.where(params[:id])
-    @menu_item = MenuItem.all
+    @orders = current_user.orders.where(restaurant_id: params[:restaurant_id])
+    @menu_items = MenuItem.where(restaurant_id: params[:restaurant_id] )
     render :personal_restaurant
   end
 

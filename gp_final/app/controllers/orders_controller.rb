@@ -11,11 +11,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-<<<<<<< HEAD
     @quote = Order.postmates_client.quote(pickup_address: @order.pickup_address, dropoff_address: @order.dropoff_address)
-=======
     @orders = current_user.restaurant.orders
->>>>>>> 1b73efa26bd1a4d08d28de707652e958ada4fa21
   end
 
   # POST /orders/new to take client information for the order
@@ -28,8 +25,6 @@ class OrdersController < ApplicationController
   def edit
   end
 
-<<<<<<< HEAD
-=======
   def my_orders
     @orders = current_user.orders.where(restaurant_id: params[:id])
     render :personal_orders
@@ -53,7 +48,6 @@ class OrdersController < ApplicationController
     end
   end
 
->>>>>>> 1b73efa26bd1a4d08d28de707652e958ada4fa21
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update

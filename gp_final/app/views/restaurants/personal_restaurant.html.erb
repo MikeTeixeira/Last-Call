@@ -1,11 +1,13 @@
-<% @restaurants.each do |restaurant|  %>
-  <h1><%= restaurant.name %></h1>
-  <p><%= restaurant.description %></p>
-  <% end %>
+<% @menu_items.each do |menu_item| %>
+<h1><%= menu_item.name %></h1>
+<p><%= menu_item.description %></p>
 
 <%= render template: 'orders/personal_orders' %>
 <%= render template: 'restaurants/personal_menu' %>
 
-<td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurants.ids) %></td>
-<td><%= link_to 'New', new_user_restaurant_menu_item_path(current_user, @restaurants.ids) %></td>
+<td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
+
+<% end %>
+
+<td><%= link_to 'New', new_user_restaurant_menu_item_path(current_user, @restaurant.id) %></td>
 
