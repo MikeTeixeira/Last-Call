@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get 'restaurants' => 'restaurants#my_restaurant'
     resources :restaurants, except: [:index, :show] do
       resources :menu_items, except: [:index] do
-      # get 'menu_items' => 'restaurants#my_menu'
+      get 'menu_items' => 'restaurants#my_menu'
       get 'restaurants' => 'restaurants#my_menu'
       resources :orders, except: [:index]
       get 'orders' => 'orders#my_orders'
