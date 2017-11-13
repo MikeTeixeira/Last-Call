@@ -2,5 +2,75 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// Home page
+$header-font: 'Aclonica', sans-serif;
+$text-font: 'PT Serif', serif;
+$lime-green: rgb(173,255,47);
+
+.menu {
+	padding-left: 25px;
+	padding-right: 25px;
+	h2 {
+		font-family: $text-font;
+		text-align: center;
+		margin-left: 10px;
+		margin-right: 50px;
+		padding-top: 15px;
+	}
+	.restaurant-info {
+		font-family: $text-font;
+		text-align: center;
+		padding-right: 15px;
+		p {
+			margin-top: -15px;
+			padding: 5px;
+			width: 85%;
+			margin-left: 25px;
+			margin-right: 50px;
+		}
+	}
+	color: white;
+	table {
+		width: 60%;
+		margin: auto 20%;
+		tr:last-child:hover {
+			background-color: white;
+		}
+		tr {
+			padding: 10px;
+		}
+		td {
+			height: 80px;
+		}
+		label {
+			width: 50%;
+		}
+		.one-fourth {
+			width: 24%;
+		}
+		.two-fourths {
+			width: 49%;
+		}
+		td:nth-child(1) {
+			vertical-align: top;
+			padding-top: 25px;
+		}
+		input[type="number"] {
+			margin-top: 8px;
+			width: 50%;
+		}
+		input[type="submit"] {
+			margin-left: 35%;
+			width: 200px;
+			text-align: center;
+			background-color: $lime-green;
+			font-size: 1.25em;
+		}
+	}
+	img {
+		padding-left: 15px;
+		padding-top: 15px;
+		width: 150px;
+		height: 150px;
+	}
+}
 
