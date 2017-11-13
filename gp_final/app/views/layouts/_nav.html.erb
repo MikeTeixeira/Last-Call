@@ -1,30 +1,50 @@
-<% if user_signed_in? %>
-  	<%= link_to "Home", root_path %>
-  	<%= link_to "About", about_us_path %>
-    <% if user_signed_in? && current_user.admin == true %>
-      <%= link_to "Your Restaurant", user_restaurants_path(current_user) %>
-    <% end %>  
-  	<%= link_to "Restaurants", restaurants_path %>
-  	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> 
+<!-- Navbar -->
 
-  	<%= form_tag(restaurants_path, :method => "get", id: "search-form") do %>
-    	<%= text_field_tag :search, params[:search], placeholder: "Search Restaurants" %>
-    	<%= submit_tag "Search", :name => nil %>
-    	<% end %> 
+<!--    Made by Erik Terwan    -->
+<!--   24th of November 2015   -->
+<!--    All rights reserved    -->
+<nav role="navigation">
+  <div id="menuToggle">
+    <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+    <input type="checkbox" />
+    
+    <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+    <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
 
-<% else %>
-  	<%= link_to "Home", root_path %>
-  	<%= link_to "About", about_us_path %>
-  	<%= link_to "Restaurants", restaurants_path %>  
-  	<%= link_to "Sign in", user_session_path %>
-  	<%= link_to "Sign up", new_user_registration_path %>
+  <ul id="menu">
+      <!-- If user signed in -->
+      <% if user_signed_in? %>
+        	<li><%= link_to "Home", root_path %></li>
+        	<li><%= link_to "About", about_us_path %></li>
+          <% if user_signed_in? && current_user.admin == true %>
+            <li><%= link_to "Your Restaurant", user_restaurants_path(current_user) %></li>
+          <% end %>  
+        	<li><%= link_to "Restaurants", restaurants_path %></li>
+        	<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 
-  	<%= form_tag(restaurants_path, :method => "get", id: "search-form") do %>
-    	<%= text_field_tag :search, params[:search], placeholder: "Search Restaurants" %>
-    	<%= submit_tag "Search", :name => nil %>
-    	<% end %> 
+      <!-- If user not signed in -->
+      <% else %>
+        	<li><%= link_to "Home", root_path %></li>
+        	<li><%= link_to "About", about_us_path %></li>
+        	<li><%= link_to "Restaurants", restaurants_path %> </li> 
+        	<li><%= link_to "Sign in", user_session_path %></li>
+        	<li><%= link_to "Sign up", new_user_registration_path %></li>
 
-
-
-
-<% end %>
+      <% end %>
+    </ul>
+  </div>
+</nav>
