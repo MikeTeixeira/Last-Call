@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!([ { 
+User.create([ { 
 	id: 1, 
 	f_name: "Joan", 
 	l_name:"Borbon", 
@@ -46,7 +46,8 @@ Restaurant.create!([ {
     latitude: "40.709556" ,
 	open_hours: "8:00AM", 
 	close_hours: "9:00PM",
-	user_id: 1 
+	user_id: 1 ,
+	image: nil
 	}, {
 	id: 2, 
 	name: "Jubilee Market Place", 
@@ -61,7 +62,8 @@ Restaurant.create!([ {
    	latitude: "40.708308",
 	open_hours: "6:00AM" , 
 	close_hours:"7:00PM",
-	user_id: 2 
+	user_id: 2 ,
+	image: nil
 	}, {
 	id: 3, 
 	name:"Thai Sliders & Co.", 
@@ -76,7 +78,8 @@ Restaurant.create!([ {
     latitude: "41.096579" ,
 	open_hours: "5:00AM", 
 	close_hours:"6:00PM",
-	user_id: 1
+	user_id: 1,
+	image: nil
 	}, {
 	id: 4, 
 	name:"Melt Shop", 
@@ -91,7 +94,8 @@ Restaurant.create!([ {
     latitude: "41.096579" ,
 	open_hours: "11:00AM", 
 	close_hours:"10:00PM",
-	user_id: 3 
+	user_id: 3,
+	image: nil 
 	}, {
 	id: 5, 
 	name:"GRK Fresh Greek", 
@@ -106,7 +110,8 @@ Restaurant.create!([ {
     latitude: "41.096579" ,
 	open_hours: "12:00PM", 
 	close_hours:"10:00PM",
-	user_id: 3 
+	user_id: 3 ,
+	image:nil
 	}, {
 	id: 6, 
 	name:"Bonchon Chicken", 
@@ -121,7 +126,8 @@ Restaurant.create!([ {
     latitude: "41.096579" ,
 	open_hours: "11:00AM", 
 	close_hours:"11:00PM",
-	user_id: 1 
+	user_id: 1 ,
+	image:nil
 	}, {
 	id: 7, 
 	name:"Niko Niko", 
@@ -136,7 +142,8 @@ Restaurant.create!([ {
     latitude: "41.096579" ,
 	open_hours: "11:00AM", 
 	close_hours:"8:00PM",
-	user_id: 3
+	user_id: 3,
+	image:nil
 	} ])
 
 Order.create!([ {
