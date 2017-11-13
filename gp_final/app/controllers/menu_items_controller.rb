@@ -1,5 +1,5 @@
 class MenuItemsController < ApplicationController
-  before_action :set_menu_item, only: [:edit, :update, :destroy]
+  before_action :set_menu_item, only: [:edit, :update]
   before_action :set_restaurant, only: [:new, :create]
 
   # GET /menu_items
@@ -58,6 +58,7 @@ class MenuItemsController < ApplicationController
   # DELETE /menu_items/1
   # DELETE /menu_items/1.json
   def destroy
+    @menu_item = MenuItem.find(params[:id])
     @menu_item.destroy
     respond_to do |format|
       format.html { redirect_to menu_items_url, notice: 'Menu item was successfully destroyed.' }
@@ -77,6 +78,6 @@ class MenuItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_item_params
-      params.require(:menu_item).permit(:restaurant_id, :user_id, :name, :category, :price, :description)
+      params.require(:menu_item).permit(:restaurant_id, :user_id, :name, :category, :price, :description, :status)
     end
 end

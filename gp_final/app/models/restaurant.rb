@@ -1,7 +1,7 @@
 class Restaurant < ApplicationRecord
   has_many :orders
   has_many :ratings, through: :orders
-  has_many :menu_items
+  has_many :menu_items, dependent: :destroy
   has_many :users
 
 has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
