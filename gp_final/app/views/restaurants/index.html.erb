@@ -116,7 +116,7 @@
           0.9 miles<br>
           45 - 55 mins
         </td>
-        <td class="placeholder-img"><img src="placeholder.jpg"></td>
+        <td class="placeholder-img"><%= image_tag restaurant.image.url (:thumb)%></td>
         <td>
           <span style="font-size: 1.15em;"><%= link_to restaurant.name, menu_path(restaurant.id) %></span><br>
           <%= restaurant.category %>

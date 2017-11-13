@@ -1,5 +1,8 @@
 class RestaurantsController < ApplicationController
+
+
   before_action :set_restaurant, only: [:edit, :update, :menu, :submit_menu, :my_restaurant, :my_menu]
+
   # before_action :set_order, only: [:submit_order]
   # GET /restaurants
   # Show list of all restaurants
