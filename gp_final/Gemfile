@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Skeleton css
+gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
+
 # Use postmates for food delivery
 gem 'postmates'
 
