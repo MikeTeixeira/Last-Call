@@ -2,16 +2,47 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Menu Items</h1>
+<div class="menu">
 
-<%= form_tag(submit_menu_path(@restaurant.id), method: "post") do %>
-  <% @restaurant.menu_items.each_with_index do |item, index| %>
-    <%= label_tag(:item_name, item.name) %>
-    <%= hidden_field_tag "order[#{index}][item]", item.id %>
-    <%= number_field_tag("order[#{index}][quantity]") %>
-  <% end %>
-    
-  <%= submit_tag("Order") %>
-<% end %>
+	<h1>LastCall</h1>
+
+<table>
+	<tr>
+		<td><img class="menu-img" src="placeholder.jpg"></td>
+		<td class="restaurant-info">
+			<h2><%= @restaurant.name %> Menu</h2>
+			<p><%= @restaurant.description %><br>
+			Address: <%= @restaurant.address %>, <%= @restaurant.city %> <%= @restaurant.state %> <%= @restaurant.zipcode %> | Tel: <%= @restaurant.phone_number %></p>
+		</td>
+	</tr>
+
+</table>
+
+<table>
+		<%= form_tag(submit_menu_path(@restaurant.id), method: "post") do %>
+		  <% @restaurant.menu_items.each_with_index do |item, index| %>
+		<tr>
+			<td class="one-fourth">
+				Category Sale [PLACEHOLDER]
+			</td>
+		    <td class="two-fourths">
+		    	<div style="position: relative;"><%= label_tag(:item_name, item.name ) %> <span style="position: absolute; top: 0; right: 0;">$<%= number_with_precision(item.price, :precision => 2) %></span></div>
+		    	<%= item.description %><br>
+		    </td>
+		   	<td class="one-fourth">
+		   		Quantity: <br>
+		   		<%= number_field_tag("order[#{index}][quantity]") %>
+		   	</td>
+		    <%= hidden_field_tag "order[#{index}][item]", item.id %>
+		</tr>
+		  <% end %>
+
+		<tr>
+			<td colspan="3"><%= submit_tag("Order") %></td>
+		</tr>
+		<% end %>
+</table>
+
+</div>
 
 

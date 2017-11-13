@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   belongs_to :restaurant
   has_many :menu_item_orders
 
-  has_many :menu_items, through: :menu_item_orders
+  has_many :menu_items, through: :menu_item_orders, dependent: :destroy
 
 	# Create a new Postmates client
 	@@postmates_client = Postmates.new

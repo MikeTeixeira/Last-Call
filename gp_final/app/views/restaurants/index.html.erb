@@ -108,8 +108,7 @@
 <% end %> 
 
 <!-- List of restaurants -->
-
-<table>
+<table class="link">
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
@@ -120,11 +119,11 @@
         <td class="placeholder-img"><%= image_tag restaurant.image.url (:thumb)%></td>
         <td>
           <span style="font-size: 1.15em;"><%= link_to restaurant.name, menu_path(restaurant.id) %></span><br>
-          Japanese
+          <%= restaurant.category %>
         </td>
         <td><%= restaurant.description %></td>
         <td style="padding-right: 25px;">
-          &#9733;&#9733;&#9733;&#9733;&#9733;<br>
+          <span style="font-size: 1.25em;">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
           25 Ratings<br>
           $$$
         </td>

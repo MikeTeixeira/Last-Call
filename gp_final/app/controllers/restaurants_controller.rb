@@ -1,9 +1,9 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:edit, :update, :destroy, :menu, :submit_menu, :my_restaurant, :my_menu]
+
+
+  before_action :set_restaurant, only: [:edit, :update, :menu, :submit_menu, :my_restaurant, :my_menu]
+
   # before_action :set_order, only: [:submit_order]
-
-
-
   # GET /restaurants
   # Show list of all restaurants
   def index
@@ -117,6 +117,7 @@ class RestaurantsController < ApplicationController
   # DELETE /restaurants/1.json
   # Delete restaurant
   def destroy
+    @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
     respond_to do |format|
       format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
