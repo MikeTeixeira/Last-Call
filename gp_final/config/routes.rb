@@ -10,11 +10,12 @@ Rails.application.routes.draw do
     get 'restaurants' => 'restaurants#my_restaurants'
     get 'restaurants' => 'restaurants#my_restaurant'
     resources :restaurants, except: [:index, :show] do
-      resources :menu_items, except: [:index]
+      resources :menu_items, except: [:index] do
       get 'menu_items' => 'restaurants#my_menu'
       get 'restaurants' => 'restaurants#my_menu'
       resources :orders, except: [:index]
       get 'orders' => 'orders#my_orders'
+      end
     end
   end
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
 
   # Menu items routes
   get 'menu/:restaurant_id' => 'restaurants#menu', as: :menu
+
 
   post 'menu/:restaurant_id' => 'restaurants#submit_menu', as: :submit_menu
 

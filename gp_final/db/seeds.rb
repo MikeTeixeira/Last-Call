@@ -216,56 +216,56 @@ MenuItem.create!([ {
 	price: 12.00, 
 	description: "Spicy Negitoro, Tortilla Chips, Cilantro, Edamame, Cucumber, Red Onion, Jalapenos, Scallions, Tomato, Wasabi Peas, Sriracha Aioli."
 	}, {
-	id: 3,
+	id: 4,
 	restaurant_id: 1, 
 	name: "Miso Hungry", 
 	category: 2, 
 	price: 12.00, 
 	description: "Tuna, Red Onion, Scallion, Cucumber, Hijiki, Shredded Nori, Sesame Seeds, Traditional Hawaiian Sauce."
 	}, {
-	id: 4,
+	id: 5,
 	restaurant_id: 5, 
 	name: "Lamb Chomps", 
 	category: 2, 
 	price: 10.00, 
 	description: "Three lamb chops marinated in yogurt with olive oil and herbs. Grilled against an open flame and served over turmeric brown rice."
 	}, {
-	id: 5,
+	id: 6,
 	restaurant_id: 5, 
 	name: "Spanakopita", 
 	category: 2, 
 	price: 10.00, 
 	description: "Authentic Spinach and Feta cheese pie. With Leeks, spinach, scallions, dill, olive oil and feta cheese. Baked in house fresh every morning.."
 	}, {
-	id: 6,
+	id: 7,
 	restaurant_id: 5, 
 	name: "Baklava", 
 	category: 2, 
 	price: 10.00, 
 	description: "20 layers of filo dough layered with chopped walnuts and Greek honey. Possibly one of the most famous Greek desserts. Amazing over frozen Yogurt."
 	}, {
-	id: 7,
+	id: 8,
 	restaurant_id: 6, 
 	name: "Sliders", 
 	category: 2, 
 	price: 5.00, 
 	description: "Crispy chicken strips (Soy Garlic or Spicy) or Marinated Ribeye, fresh cucumber, red onions and coleslaw, served on a mini slider bun. Three per order. (633-850 cal)"
 	}, {
-	id: 7,
+	id: 9,
 	restaurant_id: 6, 
 	name: "Takoyaki", 
 	category: 2, 
 	price: 5.00, 
 	description: "Fried octopus dumplings drizzled with Japanese mayonnaise, Katsu sauce and sprinkled with bonito flakes. (590 cal)"
 	}, {
-	id: 7,
+	id: 10,
 	restaurant_id: 6, 
 	name: "Potstickers", 
 	category: 2, 
 	price: 5.00, 
 	description: "Lightly fried pork and vegetable dumplings brushed with Bonchon Signature sauce. Choice of: SPICY, SOY GARLIC OR HALF & HALF (570-580 cal)"
 	}, {
-	id: 7,
+	id: 11,
 	restaurant_id: 6, 
 	name: "Bonchon Salad", 
 	category: 2, 
@@ -286,11 +286,11 @@ MenuItemOrder.create!([ {
 	}, {
 	id: 3, 
 	order_id: 2, 
-	menu_item_id: 4, 
+	menu_item_id: 5, 
 	quantity: 2
 	}, {
 	id: 4,
 	order_id: 3, 
-	menu_item_id: 7, 
+	menu_item_id: 8, 
 	quantity: 1
 	} ])

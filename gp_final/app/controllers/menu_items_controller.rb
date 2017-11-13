@@ -11,11 +11,15 @@ class MenuItemsController < ApplicationController
   # GET /menu_items/1
   # GET /menu_items/1.json
   def show
+    @user = User.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
+    @menu_item = @restaurant.menu_items.new
   end
 
   # GET /menu_items/new
   def new
     @menu_item = MenuItem.new
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   # GET /menu_items/1/edit
@@ -43,7 +47,7 @@ class MenuItemsController < ApplicationController
   def update
     respond_to do |format|
       if @menu_item.update(menu_item_params)
-        format.html { redirect_to user_restaurant_menu_item_path(current_user) , notice: 'Menu item was successfully updated.' }
+        format.html { redirect_to user_restaurant_menu_item_path(@restaurant.id, current_user) , notice: 'Menu item was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu_item }
       else
         format.html { render :edit }
