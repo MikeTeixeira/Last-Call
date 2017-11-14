@@ -1,6 +1,6 @@
 <!-- Show menu for one restaurant (place order) -->
 
-<p id="notice"><%= notice %></p>
+
 
 <div class="menu">
 <table>
@@ -20,7 +20,7 @@
 		  <% @restaurant.menu_items.each_with_index do |item, index| %>
 		<tr>
 			<td class="one-fourth">
-				Category Sale [PLACEHOLDER]
+				<%= item.category %>
 			</td>
 		    <td class="two-fourths">
 		    	<div style="position: relative;"><%= label_tag(:item_name, item.name ) %> <span style="position: absolute; top: 0; right: 0;">$<%= number_with_precision(item.price, :precision => 2) %></span></div>

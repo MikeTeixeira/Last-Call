@@ -3,7 +3,7 @@
 <%= render template: 'orders/personal_orders' %>
 <%= render template: 'restaurants/personal_menu' %>
 
-<td><%= link_to 'New', new_user_restaurant_menu_item_path(current_user, @restaurant.id, @menu_items) %></td>
+<td><%= link_to 'Add a Menu Item', new_user_restaurant_menu_item_path(current_user, @restaurant.id, @menu_items) %></td>
 
 <h2>Appetizers</h2>
 <% @menu_items.each do |menu_item| %>
@@ -34,6 +34,7 @@
   <p><%= menu_item.description %></p>
   <p><%= menu_item.price %></p>
   <td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
+  <td><%= link_to 'Delete', menu_item, method: :delete, data: { confirm: "Are you sure?"} %></td>
   <% end %>
 <% end %>
 
@@ -44,6 +45,7 @@
   <p><%= menu_item.description %></p>
   <p><%= menu_item.price %></p>
   <td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
+  <td class="button"><%= link_to 'Delete', menu_item, method: :delete, data: { confirm: "Are you sure?"} %></td>
   <% end %>
 <% end %>
 
