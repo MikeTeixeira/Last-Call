@@ -2,12 +2,53 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>Order Reciept</p>
+<div class="order-reciept">
+	<h2>Order Reciept</h2>
 
-      <tr>
-        <td><%= @quote.fee %></td>
-        <td><%= @quote.currency %></td>
-      </tr>
+	<table>
+		<tr>
+			<th colspan="2">Delivery Information<th>
+		</tr>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+		<tr>
+			<td>
+			Delivered from: <%= @order.pickup_business_name %><br>
+			<%= @order.pickup_address %> | <%= @order.pickup_phone_number %><br>
+			<a href="#">Rate and review</a>
+			</td>
+			<td>
+				Delivered to: <%= @order.dropoff_name %><br>
+				<%= @order.dropoff_address %> | <%= @order.dropoff_phone_number %><br>
+				<%= @order.dropoff_notes %>
+			</td>
+		</tr>
+		<tr>
+			<th colspan="2">Order Information<th>
+		</tr>
+
+		<% counter = 0.00 %>
+		  <% @menu_items.each do |menu_item| %>
+			  	<% if menu_item.quantity.to_i > 0 %>
+				<tr>
+				  <td style="border-bottom: lightgray solid 1px;"><%= menu_item.quantity %> <%= menu_item.menu_item.name %></td>
+				  <td style="border-bottom: lightgray solid 1px;">$<%= number_with_precision(menu_item.menu_item.price, :precision => 2) %></td>
+
+				  <% counter +=  (menu_item.quantity * menu_item.menu_item.price.to_f) %>
+				</tr>
+			<% end %>
+		<% end %>
+
+		<tr>
+			<td>Delivery Fee</td>
+			<td>$<%= number_with_precision(@quote.fee/100.0, :precision => 2) %></td>
+			<% counter += @quote.fee/100.0 %>
+		</tr>
+
+		<tr>
+			<td>Total</td>
+			<td>$<%= number_with_precision(counter, :precision => 2) %></td>
+		</tr>
+
+	</table>
+</div>
+
