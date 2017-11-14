@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+<div class="order-form">
   <div class="field">
     <%= hidden_field_tag :restaurant_id, @restaurant.id %>
   </div>
@@ -33,33 +34,48 @@
     <%= hidden_field_tag :pickup_business_name, @restaurant.name %>
   </div>      
 
-  <div class="field">
-    <%= form.label :dropoff_name %>
-    <%= form.text_field :dropoff_name, id: :dropoff_name %>
-  </div>
+<table>
+  <tr>
+    <div class="field">
+      <td><%= form.label "Name" %></td>
+      <td><%= form.text_field :dropoff_name, id: :dropoff_name %></td>
+    </div>
+  </tr>
 
-  <div class="field">
-    <%= form.label :dropoff_address %>
-    <%= form.text_field :dropoff_address, id: :dropoff_address %>
-  </div>
+  <tr>
+    <div class="field">
+      <td><%= form.label "Address" %></td>
+      <td><%= form.text_field :dropoff_address, id: :dropoff_address %></td>
+    </div>
+  </tr>
 
-  <div class="field">
-    <%= form.label :dropoff_phone_number %>
-    <%= form.text_field :dropoff_phone_number, id: :dropoff_phone_number %>
-  </div>
+  <tr>
+    <div class="field">
+      <td><%= form.label "Phone number" %></td>
+      <td><%= form.text_field :dropoff_phone_number, id: :dropoff_phone_number %></td>
+    </div>
+  </tr>
 
-  <div class="field">
-    <%= form.label :dropoff_business_name %>
-    <%= form.text_field :dropoff_business_name, id: :dropoff_business_name %>
-  </div>
+  <tr>
+    <div class="field">
+      <td><%= form.label "Building name" %></td>
+      <td><%= form.text_field :dropoff_business_name, id: :dropoff_business_name %></td>
+    </div>
+  </tr>
 
-  <div class="field">
-    <%= form.label :dropoff_notes %>
-    <%= form.text_field :dropoff_notes, id: :dropoff_notes %>
-  </div>
+  <tr>
+    <div class="field">
+      <td><%= form.label "Dropoff notes" %></td>
+      <td><%= form.text_field :dropoff_notes, id: :dropoff_notes %></td>
+    </div>
+  </tr>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <tr>
+    <div class="actions">
+      <td colspan="2"><%= form.submit submit_text %></td>
+    </div>
+  <tr>
+</table>
+</div>
 
 <% end %>

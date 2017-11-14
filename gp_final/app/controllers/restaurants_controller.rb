@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
 
-  before_action :set_restaurant, only: [:edit, :update, :menu, :submit_menu, :my_restaurant, :my_menu]
+  before_action :set_restaurant, only: [ :update, :menu, :submit_menu, :my_restaurant, :my_menu]
 
   # before_action :set_order, only: [:submit_order]
   # GET /restaurants
@@ -19,7 +19,7 @@ class RestaurantsController < ApplicationController
   # Show restaurant profile
   def show
     @restaurant = Restaurant.find(params[:id])
-    @menu_item = MenuItem.find(params[:id])
+    
   end
 
   # GET /restaurants/new
@@ -31,12 +31,14 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1/edit
   # Edit restaurant information (for admins) form
   def edit
-
+    @restaurant = Restaurant.find(params[:id])
   end
 
   # Show menu items
   # See menu items for restaurant
   def menu
+    @menu_items = MenuItem.where(restaurant_id: params[:restaurant_id])
+    @restaurants = Restaurant.find(params[:restaurant_id])
 
   end
 
@@ -102,9 +104,10 @@ class RestaurantsController < ApplicationController
   # PATCH/PUT /restaurants/1.json
   # Edit restaurant
   def update
+    @restaurant = Restaurant.find(params[:id])
     respond_to do |format|
       if @restaurant.update(restaurant_params)
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
+        format.html { redirect_to user_restaurant_url(current_user), notice: 'Restaurant was successfully updated.' }
         format.json { render :show, status: :ok, location: @restaurant }
       else
         format.html { render :edit }
@@ -128,7 +131,7 @@ class RestaurantsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
-      @restaurant = Restaurant.find(params[:restaurant_id])
+      @restaurant = Restaurant.find(params[:restaurant_id] || params[:id])
     end
 
     # Use callbacks to share common setup or constraints between actions.

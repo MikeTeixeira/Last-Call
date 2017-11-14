@@ -1,3 +1,78 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ $lime-green: rgb(173,255,47);
+ $dark-grey: rgb(24,24,24);
+
+.order-form {
+	table {
+		margin: auto 30%;
+		width: 40%;
+		padding: 50px 140px 50px 130px;
+	}
+	tr:hover {
+		background-color: white;
+	}
+	td {
+		border-color: white;
+	}
+	td:nth-child(1) label {
+		width: 85px;
+	}
+	input[type="submit"] {
+		background-color: $lime-green;
+		margin-left: 60px;
+	}
+}
+
+.order-reciept, .current-orders {
+	table {
+		width: 40%;
+		margin: auto 30%;
+		td:nth-child(1) {
+			width: 50%;
+		}
+		tr:hover {
+			background-color: white;
+		}
+		th {
+			background-color: lightgray;
+			padding-left: 15px;
+		}
+		th:nth-child(2) {
+			width: 0;
+		}
+		td {
+			border-color: white;
+		}
+	}
+	a {
+		color: $dark-grey;
+	}
+	a:hover {
+		background-color: inherit;
+		color: purple;
+	}
+}
+
+.current-orders {
+	.orders {
+		height: 1000px;
+		overflow: scroll;
+	}
+	position: relative;
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	table {
+		text-align: center;
+		margin: 10px auto;
+		width: 90%;
+		background-color: white;
+		td {
+			padding: 5px 0;
+			margin: 0;
+		}
+	}
+}

@@ -1,8 +1,6 @@
 <!-- For restaurant admins, see a list of restaurants you own -->
 
-<p id="notice"><%= notice %></p>
 
-<h1>LastCall</h1>
 
 <h2>Welcome, <%= current_user.full_name%>.</h2>
 
@@ -43,7 +41,7 @@
         <td><%= restaurant.description %></td>
         <td><%= restaurant.address %>, <%= restaurant.city %> <%= restaurant.state %> <%= restaurant.zipcode %></td>
         <td><%= restaurant.phone_number %></td>
-        <td><%= restaurant.open_hours %> - <%= restaurant.close_hours %> </td>
+        <td><%= restaurant.open_hours %>AM - <%= restaurant.close_hours %>PM </td>
         <td><%= link_to 'Edit My Restaurant', edit_restaurant_path(restaurant) %></td>
       </tr>
     <% end %>

@@ -31,7 +31,7 @@ class MenuItemsController < ApplicationController
     @menu_item.restaurant = @restaurant
     respond_to do |format|
       if @menu_item.save!
-        format.html { redirect_to :root, notice: 'Menu item was successfully created.' }
+        format.html { redirect_back fallback_location: root_path,   notice: 'Menu item was successfully created.' }
         format.json { render :show, status: :created, location: @menu_item }
       else
         format.html { render :new }
@@ -59,9 +59,10 @@ class MenuItemsController < ApplicationController
   # DELETE /menu_items/1.json
   def destroy
     @menu_item = MenuItem.find(params[:id])
+    restaurant = @menu_item.restaurant
     @menu_item.destroy
     respond_to do |format|
-      format.html { redirect_to menu_items_url, notice: 'Menu item was successfully destroyed.' }
+      format.html { redirect_to my_restaurant_path(current_user, restaurant.id), notice: 'Menu item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

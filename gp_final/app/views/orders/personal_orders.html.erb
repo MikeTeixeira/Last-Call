@@ -1,11 +1,44 @@
-<h1>Your Current Orders</h1>
 
-<% @orders.each do |order| %>
-  <p><%= order.pickup_address %></p>
-  <p><%= order.pickup_phone_number %></p>
-  <p><%= order.dropoff_name %></p>
-  <p><%= order.dropoff_address %></p>
-  <p><%= order.dropoff_phone_number %></p>
-  <p><%= order.dropoff_business_name %></p>
-  <p><%= order.dropoff_notes%></p>
-  <% end %>
+<div class="current-orders">
+<h2>Your Current Orders</h2>
+
+<div class="orders">
+	<% @orders.each do |order| %>
+	<table>
+		<tr>
+			<th colspan="2">Delivery Information</th>
+		</tr>
+
+		<tr>
+			<td colspan="2">
+				Delivered to: <%= order.dropoff_name %><br>
+				<%= order.dropoff_address %> | <%= order.dropoff_phone_number %><br>
+				<%= order.dropoff_notes%>
+			</td>
+		</tr>
+
+		<tr>
+			<th colspan="2">Order Information</th>
+		</tr>
+		
+			<% @menu_items = MenuItemOrder.where(order_id: order.id) %>
+
+			<% @menu_items.each do |menu_item| %>
+			<tr>
+				<% if menu_item.quantity.to_i > 0 %>
+				<td>
+					<%= menu_item.quantity %> <%= menu_item.menu_item.name %>
+				</td>
+				<td>
+					<%= menu_item.menu_item.price %>
+			
+				</td>
+				<% end %>
+			<% end %>
+		</tr>
+
+	</table>
+
+	<% end %>
+</div>
+</div>
