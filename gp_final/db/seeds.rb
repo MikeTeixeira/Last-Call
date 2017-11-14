@@ -44,8 +44,8 @@ Restaurant.create!([ {
 	zipcode: '10038',
 	longitude: "-74.006835",
     latitude: "40.709556" ,
-	open_hours: "8:00AM", 
-	close_hours: "9:00PM",
+	open_hours: "8:00", 
+	close_hours: "9:00",
 	user_id: 1 ,
 	image: File.new('app/assets/images/photos/pokebowl.jpg')
 	}, {
@@ -60,8 +60,8 @@ Restaurant.create!([ {
 	zipcode: '10038', 
 	longitude: "-74.006001",
    	latitude: "40.708308",
-	open_hours: "6:00AM" , 
-	close_hours:"7:00PM",
+	open_hours: "6:00" , 
+	close_hours:"7:00",
 	user_id: 2 ,
 	image: File.new('app/assets/images/photos/jubilee.png')
 	}, {
@@ -76,8 +76,8 @@ Restaurant.create!([ {
 	zipcode: '10038', 
 	longitude: "-73.681358",
     latitude: "41.096579" ,
-	open_hours: "5:00AM", 
-	close_hours:"6:00PM",
+	open_hours: "5:00", 
+	close_hours:"6:00",
 	user_id: 1,
 	image: nil
 	}, {
@@ -92,8 +92,8 @@ Restaurant.create!([ {
 	zipcode: '10038', 
 	longitude: "-74.006561",
     latitude: "40.709926" ,
-	open_hours: "11:00AM", 
-	close_hours:"10:00PM",
+	open_hours: "11:00", 
+	close_hours:"10:00",
 	user_id: 3,
 	image: File.new('app/assets/images/photos/meltshop.jpg')
 	}, {
@@ -108,8 +108,8 @@ Restaurant.create!([ {
 	zipcode: '10038', 
 	longitude: "-73.993665",
     latitude: "40.731260" ,
-	open_hours: "12:00PM", 
-	close_hours:"10:00PM",
+	open_hours: "12:00", 
+	close_hours:"10:00",
 	user_id: 3 ,
 	image: File.new('app/assets/images/photos/grk.png')
 	}, {
@@ -124,8 +124,8 @@ Restaurant.create!([ {
 	zipcode: '10038', 
 	longitude: "-74.006235",
     latitude: "40.707694" ,
-	open_hours: "11:00AM", 
-	close_hours:"11:00PM",
+	open_hours: "11:00", 
+	close_hours:"11:00",
 	user_id: 1 ,
 	image: File.new('app/assets/images/photos/bonchon.jpeg')
 	}, {
@@ -140,8 +140,8 @@ Restaurant.create!([ {
 	zipcode: '10005', 
 	longitude: "-74.005015",
     latitude: "40.707179" ,
-	open_hours: "11:00AM", 
-	close_hours:"8:00PM",
+	open_hours: "11:00", 
+	close_hours:"8:00",
 	user_id: 3,
 	image: nil
 	} ])

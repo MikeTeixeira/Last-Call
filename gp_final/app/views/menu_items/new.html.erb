@@ -2,4 +2,4 @@
 
 <%= render 'form', menu_item: @menu_item %>
 
-<%= link_to 'Back', menu_items_path %>
+<%= link_to 'Back', my_restaurant_path(current_user, @restaurant.id) %>
