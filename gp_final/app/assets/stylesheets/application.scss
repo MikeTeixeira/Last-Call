@@ -122,8 +122,9 @@ table {
 	padding-right: 10px;
 	background-color: lightgray;
 	h2 {
-		padding-left: 15px;
+		margin-left: -210px;
 		font-size: 2.5em;
+		color: $dark-grey;
 	}
 	input[type="submit"] {
 		width: 130px;

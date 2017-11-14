@@ -1,3 +1,26 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ $lime-green: rgb(173,255,47);
+
+.order-form {
+	table {
+		margin: auto 30%;
+		width: 40%;
+		padding: 50px 140px 50px 130px;
+	}
+	tr:hover {
+		background-color: white;
+	}
+	td {
+		border-color: white;
+	}
+	td:nth-child(1) label {
+		width: 85px;
+	}
+	input[type="submit"] {
+		background-color: $lime-green;
+		margin-left: 60px;
+	}
+}

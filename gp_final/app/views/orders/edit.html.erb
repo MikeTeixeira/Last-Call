@@ -1,8 +1,8 @@
 <!-- Editing an existing client's order -->
 
-<h1>Editing Order</h1>
+<h2>Edit Order</h2>
 
-<%= render 'form', order: @order %>
+<%= render 'form', order: @order, submit_text: 'Update Order' %>
 
 <%= link_to 'Show', @order %> |
 <%= link_to 'Back', orders_path %>
