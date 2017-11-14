@@ -315,19 +315,6 @@ table {
 /* start of about page */
 
 
-
-.about-pic {
-	background: $lime-green;
-	height: 100px; 
-	width: 100%;
-	border-style: solid; 
-	border-color:white;
-	box-sizing: border-box;
-	margin-top:30px;
-
-}
-
-
 .about-footer{
 
 	height: 100px;
@@ -338,12 +325,26 @@ table {
 }
 
 
-.about-text{
-	background-color: white;
-	height: 400px;
-	width: 100%;
-	border-color: white;
-	border-style: solid;
-	font-size: 16px;
-	overflow-wrap: break-word;
+.about-wrapper {
+  background-color: white;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  .about-left {
+    flex: 1;
+    text-align: center;
+    padding: 30px;
+  }
+  .about-right {
+    flex: 1;
+    border-left: 10px solid black;
+
+    h3 {
+      font-size: 7rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
 }
