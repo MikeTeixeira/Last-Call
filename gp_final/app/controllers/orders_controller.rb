@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.update!(order_params)
         @postmates_order = Order.postmates_client.create(postmates_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated. Postmates will deliver it soon.' }
+        format.html { redirect_to :root, notice: 'Order was successfully updated. Postmates will deliver it soon.' }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }

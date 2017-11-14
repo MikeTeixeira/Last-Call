@@ -22,7 +22,7 @@
   </div>
 
   <div class="field">
-    <%= hidden_field_tag :pickup_address, @restaurant.address + ', ' + @restaurant.city + ' ' + @restaurant.state %>
+    <%= hidden_field_tag :pickup_address, @restaurant.address + ', ' + @restaurant.city + ', ' + @restaurant.state %>
   </div>
 
   <div class="field">
@@ -61,4 +61,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
