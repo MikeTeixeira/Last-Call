@@ -309,3 +309,41 @@ table {
 }
 
 /* End of navigation bar */
+
+
+
+/* start of about page */
+
+
+
+.about-pic {
+	background: $lime-green;
+	height: 100px; 
+	width: 100%;
+	border-style: solid; 
+	border-color:white;
+	box-sizing: border-box;
+	margin-top:30px;
+
+}
+
+
+.about-footer{
+
+	height: 100px;
+	width: 100%;
+	margin-bottom: 30px;
+	text-align: center;
+	margin: 0 auto ;
+}
+
+
+.about-text{
+	background-color: white;
+	height: 400px;
+	width: 100%;
+	border-color: white;
+	border-style: solid;
+	font-size: 16px;
+	overflow-wrap: break-word;
+}
