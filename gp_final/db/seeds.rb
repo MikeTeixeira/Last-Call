@@ -46,7 +46,7 @@ Restaurant.create!([ {
     latitude: "40.709556" ,
 	open_hours: "8:00", 
 	close_hours: "9:00",
-	user_id: 1 ,
+	user_id: 2,
 	image: File.new('app/assets/images/photos/pokebowl.jpg')
 	}, {
 	id: 2, 
@@ -78,7 +78,7 @@ Restaurant.create!([ {
     latitude: "41.096579" ,
 	open_hours: "5:00", 
 	close_hours:"6:00",
-	user_id: 1,
+	user_id: 2,
 	image: nil
 	}, {
 	id: 4, 
@@ -110,7 +110,7 @@ Restaurant.create!([ {
     latitude: "40.731260" ,
 	open_hours: "12:00", 
 	close_hours:"10:00",
-	user_id: 3 ,
+	user_id: 3,
 	image: File.new('app/assets/images/photos/grk.png')
 	}, {
 	id: 6, 
@@ -126,7 +126,7 @@ Restaurant.create!([ {
     latitude: "40.707694" ,
 	open_hours: "11:00", 
 	close_hours:"11:00",
-	user_id: 1 ,
+	user_id: 2,
 	image: File.new('app/assets/images/photos/bonchon.jpeg')
 	}, {
 	id: 7, 

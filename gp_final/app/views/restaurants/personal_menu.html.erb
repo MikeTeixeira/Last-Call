@@ -1,47 +1,90 @@
-<h1><%= @restaurant.name %> Menu</h1>
 
 <div class="personal-menu">
-  <td><%= link_to 'New', new_user_restaurant_menu_item_path(current_user, @restaurant.id, @menu_items) %></td>
+<h2><%= @restaurant.name %> Menu</h2>
 
-  <h2>Appetizers</h2>
-  <% @menu_items.each do |menu_item| %>
-   <% if menu_item.category == "Appetizer" %>   
-    <h3><%= menu_item.name %></h3>
-    <p><%= menu_item.description %></p>
-    <p><%= menu_item.price %></p>
+<table>
+	<tr>
+  		<th colspan="4">Appetizers</th>
+ 	 </tr>
+
+<% @menu_items.each do |menu_item| %>
+	<% if menu_item.category == "Appetizer" %> 
+
+   <tr> 
+   	<td><%= link_to 'x', menu_item, method: :delete, data: { confirm: "Are you sure?"} %></td>
+    <td>
+    	<%= menu_item.name %><br>
+		<%= menu_item.description %>
+	</td>
+    <td>$<%= number_with_precision(menu_item.price, :precision => 2) %></td>
     <td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
-    <td><%= link_to 'Delete', menu_item, method: :delete, data: { confirm: "Are you sure?"} %></td>
-    <% end %>
-  <% end %>
+   </tr> 
 
-  <h2>Lunch</h2>
+	<% end %>
+<% end %>
+
+	<tr>
+  		<th colspan="4">Lunch</th>
+ 	 </tr>
+
   <% @menu_items.each do |menu_item| %>
     <% if menu_item.category == "Lunch" %>
-    <h3><%= menu_item.name %></h3>
-    <p><%= menu_item.description %></p>
-    <p><%= menu_item.price %></p>
+
+   <tr>
+   	<td><%= link_to 'x', menu_item, method: :delete, data: { confirm: "Are you sure?"} %></td>
+    <td>
+    	<%= menu_item.name %><br>
+		<%= menu_item.description %>
+	</td>
+    <td>$<%= number_with_precision(menu_item.price, :precision => 2) %></td>
     <td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
-    <td><%= link_to 'Delete', menu_item, method: :delete, data: { confirm: "Are you sure?"} %></td>
+   </tr> 
+
     <% end %>
   <% end %>
 
-  <h2>Dinner</h2>
+	<tr>
+  		<th colspan="4">Dinner</th>
+ 	 </tr>
+
   <% @menu_items.each do |menu_item| %>
     <% if menu_item.category == "Dinner" %>
-    <h3><%= menu_item.name %></h3>
-    <p><%= menu_item.description %></p>
-    <p><%= menu_item.price %></p>
+
+   <tr>
+   	<td><%= link_to 'x', menu_item, method: :delete, data: { confirm: "Are you sure?"} %></td>
+    <td>
+    	<%= menu_item.name %><br>
+		<%= menu_item.description %>
+	</td>
+    <td>$<%= number_with_precision(menu_item.price, :precision => 2) %></td>
+
     <td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
+   </tr>
+
     <% end %>
   <% end %>
 
-  <h2>On Sale</h2>
+	<tr>
+  		<th colspan="4">On Sale</th>
+ 	 </tr>
+
   <% @menu_items.each do |menu_item| %>
     <% if menu_item.status == "Sale" %>
-    <h3><%= menu_item.name %></h3>
-    <p><%= menu_item.description %></p>
-    <p><%= menu_item.price %></p>
+
+   <tr>
+   	<td><%= link_to 'Delete', menu_item, method: :delete, data: { confirm: "Are you sure?"} %></td>
+    <td>
+    	<%= menu_item.name %><br>
+		<%= menu_item.description %>
+	</td>
+    <td>$<%= number_with_precision(menu_item.price, :precision => 2) %></td>
     <td><%= link_to 'Edit', edit_user_restaurant_menu_item_path(current_user, @restaurant.id, menu_item.id) %></td>
+   </tr>
+
     <% end %>
   <% end %>
+</table>
+
+  <p><%= link_to 'Add new menu item', new_user_restaurant_menu_item_path(current_user, @restaurant.id, @menu_items) %></p>
+
 </div>

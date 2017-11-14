@@ -21,16 +21,16 @@
 			<th colspan="2">Order Information</th>
 		</tr>
 		
-			<% @menu_items = MenuItemOrder.where(order_id: order.id) %>
+			<%# @menu_items = MenuItemOrder.where(order_id: order.id) %>
 
-			<% @menu_items.each do |menu_item| %>
+			<% order.menu_item_orders.each do |menu_item| %>
 			<tr>
 				<% if menu_item.quantity.to_i > 0 %>
 				<td>
 					<%= menu_item.quantity %> <%= menu_item.menu_item.name %>
 				</td>
 				<td>
-					<%= menu_item.menu_item.price %>
+					<%= number_with_precision(menu_item.menu_item.price, :precision => 2) %>
 			
 				</td>
 				<% end %>
