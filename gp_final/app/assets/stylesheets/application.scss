@@ -22,13 +22,13 @@
  $lime-green: rgb(173,255,47);
 
 body {
-	background-color: rgb(24,24,24);
+	background-color: $dark-grey;
 	color: white;
 	padding: 25px;
 	h1 {
 		margin-top: 50px;
 		margin-bottom: 20px;
-		color: rgb(173,255,47);
+		color: $lime-green;
 		text-align: center;
 		font-family: $header-font;
 		font-size: 6em;
@@ -37,6 +37,10 @@ body {
 		width: 100px;
 		height: 100px;
 		margin-left: 15px;
+	}
+	h2 {
+		text-align: center;
+		color: lightgray;
 	}
 }
 
@@ -49,7 +53,7 @@ body {
 		text-decoration: none;
 	}
 	a:hover {
-		color: rgb(173,255,47);
+		color: purple;
 	}
 }
 
@@ -67,7 +71,7 @@ table {
 		font-family: $text-font;
 	}
 	tr:hover {
-		background-color: rgb(173,255,47);
+		background-color: lightgray;
 	}
 	td:nth-child(2) {
 		padding-left: 5px;
@@ -102,7 +106,59 @@ table {
 		background-color: rgb(173,255,47);
 	}
 	button {
-		background-color: rgb(24,24,24);
+		background-color: $dark-grey;
+	}
+}
+
+.login-form {
+	position: relative;
+	margin: auto 31%;
+	width: 25%;
+	min-width: 290px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-left: 170px;
+	padding-right: 10px;
+	background-color: lightgray;
+	h2 {
+		padding-left: 15px;
+		font-size: 2.5em;
+	}
+	input[type="submit"] {
+		width: 130px;
+		background-color: rgb(173,255,47);
+		margin-left: 25px;
+	}
+	input[type="email"] {
+		margin-top: -70px;
+		margin-bottom: -5px;
+	}
+	input[type="password"] {
+		margin-top: -70px;
+		margin-bottom: 20px;
+	}
+	label {
+		margin-bottom: -10px;
+	}
+	a {
+		padding-left: 15px;
+		color: black;
+		text-decoration: none;
+		text-align: center;
+	}
+	a:hover {
+		background-color: inherit;
+		color: purple;
+	}
+	a.signup-link {
+		position: absolute;
+		top: 70px;
+		left: 275px;
+	}
+	a.forgot-password-link {
+		position: absolute;
+		top: 265px;
+		left: 180px;
 	}
 }
 
