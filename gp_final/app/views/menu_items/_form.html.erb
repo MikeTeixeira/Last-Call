@@ -11,38 +11,54 @@
     </div>
   <% end %>
 
-  <div>
-    <%= hidden_field_tag :restaurant_id, params[:restaurant_id] %>
-  </div>
+<div class="menu-item-form">
+  <table>
+    <div>
+      <%= hidden_field_tag :restaurant_id, params[:restaurant_id] %>
+    </div>
 
-  <div class="field">
-    <%= form.select :category, MenuItem.categories.keys %>
-  </div>
-  
-  <div class="field">
-    <%= form.label "Is This Dish On Sale?" %>
-    <%= form.select :status, MenuItem.statuses.keys %>
-  </div>
+    <tr>
+    <div class="field">
+      <td><%= form.label "Category" %></td>
+      <td><%= form.select :category, MenuItem.categories.keys %></td>
+    </div>
+    </tr>
+    
+    <tr>
+    <div class="field">
+      <td><%= form.label "Is This Dish On Sale?" %></td>
+      <td><%= form.select :status, MenuItem.statuses.keys %></td>
+    </div>
+    </tr>
 
-  <div class="field">
-    <%= form.label "Name" %>
-    <%= form.text_field :name, id: :menu_item_name %>
-  </div>
+    <tr>
+    <div class="field">
+      <td><%= form.label "Name" %></td>
+      <td><%= form.text_field :name, id: :menu_item_name %></td>
+    </div>
+    </tr>
 
-  <div class="field">
-    <%= form.label "Price" %>
-    <%= form.text_field :price, id: :menu_item_price, :value => (number_with_precision(form.object.price, :precision => 2) || 0) %>
-  </div>
+    <tr>
+    <div class="field">
+      <td><%= form.label "Price" %></td>
+      <td><%= form.text_field :price, id: :menu_item_price, :value => (number_with_precision(form.object.price, :precision => 2) || 0) %></td>
+    </div>
+    </tr>
 
-  <div class="field">
-    <%= form.text_area :description, id: :menu_item_description %>
-  </div>
-  
+    <tr>
+    <div class="field">
+      <td><%= form.label "Description" %></td>
+      <td><%= form.text_area :description, id: :menu_item_description %></td>
+    </div>
+    </tr>
 
-  </div>
+    <tr>
+    <div class="actions">
+      <td colspan="2"><%= form.submit %></td>
+    </div>
+  </tr>
 
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    </table>
+    </div>
+</div>
 <% end %>
