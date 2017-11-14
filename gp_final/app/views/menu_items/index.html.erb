@@ -1,18 +1,19 @@
 
 
-<h1>Menu Items</h1>
+<h1>Todays Sales</h1>
 
 <table>
   <thead>
     <tr>
       <th colspan="3"></th>
+
     </tr>
   </thead>
 
   <tbody>
     <% @menu_items.each do |menu_item| %>
       <% if menu_item.status == "Sale" %>
-    
+    <td><strong><%= menu_item.restaurant.name %></td>
     <td><%= menu_item.name %></td>
     <td><%= menu_item.description %></td>
       <tr>
