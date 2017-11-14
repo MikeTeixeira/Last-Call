@@ -5,11 +5,13 @@
 $header-font: 'Aclonica', sans-serif;
 $text-font: 'PT Serif', serif;
 $lime-green: rgb(173,255,47);
+ $dark-grey: rgb(24,24,24);
 
 .menu {
 	padding-left: 25px;
 	padding-right: 25px;
 	h2 {
+		color: $dark-grey;
 		font-family: $text-font;
 		text-align: center;
 		margin-left: 10px;
@@ -71,6 +73,45 @@ $lime-green: rgb(173,255,47);
 		padding-top: 15px;
 		width: 150px;
 		height: 150px;
+	}
+}
+
+.personal_restaurants {
+	a {
+		text-decoration: none;
+		color: black;
+	}
+	a:hover {
+		background-color: inherit;
+		color: purple
+	}
+	td:nth-child(1) {
+		width: 10px;
+	}
+	td:nth-child(2) {
+		width: 10%;
+	}
+	td:nth-child(3) {
+		width: 30%;
+	}
+	td:nth-child(4) {
+		width: 20%;
+	}
+	td:nth-child(5) {
+		width: 15%;
+	}
+	td:nth-child(6) {
+		width: 15%;
+	}
+	td:last-child {
+		width: 50px;
+		padding-right: 10px;
+	}
+	a.create-restaurant-link {
+		position: absolute;
+		right: 25px;
+		top: 280px;
+		font-size: 1.25em;
 	}
 }
 
