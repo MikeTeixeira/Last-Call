@@ -1,4 +1,4 @@
-<!-- <h1>My menu</h1> -->
+<h1><%= @restaurant.name %> Menu</h1>
 
 <div class="personal-menu">
   <td><%= link_to 'New', new_user_restaurant_menu_item_path(current_user, @restaurant.id, @menu_items) %></td>

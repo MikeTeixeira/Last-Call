@@ -20,8 +20,4 @@ class User < ApplicationRecord
     "#{f_name} #{l_name}"
   end
 
-  
-
-
-
 end

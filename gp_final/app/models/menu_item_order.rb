@@ -1,4 +1,4 @@
 class MenuItemOrder < ApplicationRecord
   belongs_to :order
-  belongs_to :menu_item
+  belongs_to :menu_item, dependent: :destroy
 end

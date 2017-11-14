@@ -16,7 +16,6 @@
     <td><%= menu_item.name %></td>
     <td><%= menu_item.description %></td>
       <tr>
-        <td><%= link_to 'Show', menu_item %></td>
         <td><%= link_to 'Edit', edit_menu_item_path(menu_item) %></td>
         <td><%= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
