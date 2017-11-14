@@ -56,23 +56,60 @@
 	}
 }
 
-.current-orders {
-	.orders {
-		height: 1000px;
-		overflow: scroll;
+.personal-restaurant {
+	a {
+		color: #666;
 	}
-	position: relative;
-	width: 30%;
+	a:hover {
+		color: purple;
+		background-color: inherit;
+	}
+	tr:hover {
+		background-color: inherit;
+	}
 	display: flex;
-	flex-direction: column;
-	table {
-		text-align: center;
-		margin: 10px auto;
-		width: 90%;
-		background-color: white;
-		td {
-			padding: 5px 0;
-			margin: 0;
+	justify-content: space-evenly;
+	.current-orders {
+		.orders {
+			height: 1000px;
+			overflow: scroll;
+		}
+		position: relative;
+		width: 30%;
+		display: flex;
+		flex-direction: column;
+		table {
+			text-align: center;
+			margin: 10px auto;
+			width: 90%;
+			background-color: white;
+			td {
+				padding: 5px 0;
+				margin: 0;
+			}
+		}
+	}
+
+	.personal-menu {
+		width: 60%;
+		th {
+			background-color: lightgray;
+			padding-left: 15px;
+		}
+		td:nth-child(1) {
+			width: 10%;
+			a {
+				text-decoration: none;
+			}
+		}
+		td:nth-child(2) {
+			width: 50%;
+		}
+		td:nth-child(3) {
+			padding-left: 20px;
+			width: 20%;
 		}
 	}
 }
+
+

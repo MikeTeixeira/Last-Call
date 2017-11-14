@@ -1,11 +1,19 @@
 
+<div class="personal-restaurant">
+  <%= render template: 'orders/personal_orders' %>
 
+<<<<<<< HEAD
+  <%= render template: 'restaurants/personal_menu' %>
+=======
 <%= render template: 'orders/personal_orders' %>
 <%= render template: 'restaurants/personal_menu' %>
 
+>>>>>>> fea103583cd18eac48e3a7ff8d4ea0c2f0f7bead
 
-<td><%= link_to 'Add a Menu Item', new_user_restaurant_menu_item_path(current_user, @restaurant.id, @menu_items) %></td>
+</div>
 
+<<<<<<< HEAD
+=======
 <h2>Appetizers</h2>
 <% @menu_items.each do |menu_item| %>
  <% if menu_item.category == "Appetizer" %>   
@@ -50,3 +58,4 @@
   <% end %>
 <% end %>
 
+>>>>>>> fea103583cd18eac48e3a7ff8d4ea0c2f0f7bead
